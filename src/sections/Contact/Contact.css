@@ -1,0 +1,104 @@
+.contact {
+  padding: 110px 32px;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(12, 10, 8, 0.95), rgba(12, 10, 8, 0.72)),
+    url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.jpg") center 62% / cover;
+}
+
+.contact-cta {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding: 54px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.contact-copy {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-copy h2 {
+  max-width: 13ch;
+  color: var(--white);
+  font-size: clamp(3.2rem, 5.6vw, 6.4rem);
+}
+
+.contact-copy p {
+  max-width: 58ch;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.contact-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 54px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-primary {
+  color: var(--ink);
+  background: var(--white);
+}
+
+.contact-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 780px) {
+  .contact {
+    padding: 72px 18px;
+    background:
+      linear-gradient(180deg, rgba(12, 10, 8, 0.94), rgba(12, 10, 8, 0.78)),
+      url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.jpg") center / cover;
+  }
+
+  .contact-cta {
+    padding: 42px 0;
+  }
+
+  .contact-copy h2 {
+    max-width: 12ch;
+    font-size: clamp(2.55rem, 12vw, 3.7rem);
+  }
+
+  .contact-copy p {
+    max-width: 34ch;
+    margin-top: 20px;
+    line-height: 1.7;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: min(100%, 360px);
+    margin-top: 26px;
+  }
+
+  .contact-actions a {
+    min-height: 52px;
+    padding: 0 16px;
+    text-align: center;
+  }
+}

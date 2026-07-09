@@ -1,0 +1,88 @@
+.site-footer {
+  padding: 60px 32px 24px;
+  color: rgba(255, 255, 255, 0.76);
+  background: #090806;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding-bottom: 54px;
+}
+
+.footer-brand {
+  color: var(--white);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: clamp(2rem, 3.4vw, 3.8rem);
+}
+
+.footer-brand sup {
+  position: relative;
+  top: -0.8em;
+  margin-left: 0.12em;
+  font-family: Arial, sans-serif;
+  font-size: 0.25em;
+  line-height: 0;
+}
+
+.footer-main p {
+  max-width: 44ch;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  justify-self: end;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 780px) {
+  .site-footer {
+    padding-top: 46px;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 36px;
+  }
+
+  .footer-main p {
+    max-width: 34ch;
+  }
+
+  .footer-nav {
+    grid-template-columns: 1fr;
+    justify-self: start;
+    gap: 12px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
