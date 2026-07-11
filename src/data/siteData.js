@@ -67,6 +67,7 @@ export const collectionItems = [
     label: "Wellness",
     text: "Private sanctuaries designed to restore the body and quiet the mind.",
     image: wellness,
+    href: "/collections/saunas-cold-plunges",
   },
   {
     title: "Indoor Furniture",

@@ -1,0 +1,21 @@
+.wellness-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.wellness-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.wellness-page .wardrobe-inquiry {
+  background-image: url("../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.jpg");
+}
+
+@media (max-width: 780px) {
+  .wellness-page .wardrobe-hero > img {
+    object-position: 61% center;
+  }
+
+  .wellness-page .wardrobe-craft-image img {
+    object-position: 54% center;
+  }
+}
