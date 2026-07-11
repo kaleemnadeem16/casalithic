@@ -53,6 +53,7 @@ export const collectionItems = [
     label: "Four wood species",
     text: "Architectural entrances crafted to make every arrival feel considered.",
     image: solidDoors,
+    href: "/collections/doors",
   },
   {
     title: "Floorings",

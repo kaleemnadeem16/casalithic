@@ -1,0 +1,21 @@
+.doors-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.doors-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.doors-page .wardrobe-inquiry {
+  background-image: url("../../assets/doors/gallery/doors-gallery-01.jpg");
+}
+
+@media (max-width: 780px) {
+  .doors-page .wardrobe-hero > img {
+    object-position: 61% center;
+  }
+
+  .doors-page .wardrobe-craft-image img {
+    object-position: 57% center;
+  }
+}

@@ -72,12 +72,16 @@ function Header() {
             <a className="mobile-menu-sub" href="/collections/vanities-wall-units" onClick={() => setIsMenuOpen(false)}>
               Vanities &amp; Wall Units
             </a>
+            <a className="mobile-menu-sub" href="/collections/doors" onClick={() => setIsMenuOpen(false)}>
+              Doors
+            </a>
           </div>
         ) : (
           <div className="header-submenu">
             <a href="/collections/wardrobes">Wardrobes</a>
             <a href="/collections/kitchen">Kitchen</a>
             <a href="/collections/vanities-wall-units">Vanities &amp; Wall Units</a>
+            <a href="/collections/doors">Doors</a>
           </div>
         )}
       </div>
