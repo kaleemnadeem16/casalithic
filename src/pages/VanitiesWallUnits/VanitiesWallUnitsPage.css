@@ -1,0 +1,21 @@
+.vanities-wall-units-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.vanities-wall-units-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.vanities-wall-units-page .wardrobe-inquiry {
+  background-image: url("../../assets/vanities-wall-units/gallery/vanities-wall-units-gallery-09.jpg");
+}
+
+@media (max-width: 780px) {
+  .vanities-wall-units-page .wardrobe-hero > img {
+    object-position: 54% center;
+  }
+
+  .vanities-wall-units-page .wardrobe-craft-image img {
+    object-position: 44% center;
+  }
+}

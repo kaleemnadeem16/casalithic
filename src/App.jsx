@@ -11,11 +11,13 @@ import Contact from "./sections/Contact/Contact";
 import Footer from "./sections/Footer/Footer";
 import WardrobesPage from "./pages/Wardrobes/WardrobesPage";
 import KitchenPage from "./pages/Kitchen/KitchenPage";
+import VanitiesWallUnitsPage from "./pages/VanitiesWallUnits/VanitiesWallUnitsPage";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
   const isWardrobesPage = currentPath === "/collections/wardrobes";
   const isKitchenPage = currentPath === "/collections/kitchen";
+  const isVanitiesWallUnitsPage = currentPath === "/collections/vanities-wall-units";
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -82,6 +84,10 @@ function App() {
 
   if (isKitchenPage) {
     return <KitchenPage />;
+  }
+
+  if (isVanitiesWallUnitsPage) {
+    return <VanitiesWallUnitsPage />;
   }
 
   return (

@@ -46,6 +46,7 @@ export const collectionItems = [
     label: "Cabinetry",
     text: "Tailored storage and display pieces that bring elegance into perfect order.",
     image: vanityWallUnit,
+    href: "/collections/vanities-wall-units",
   },
   {
     title: "Doors",
