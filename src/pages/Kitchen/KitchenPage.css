@@ -1,0 +1,17 @@
+.kitchen-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.kitchen-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.kitchen-page .wardrobe-inquiry {
+  background-image: url("../../assets/kitchen/gallery/kitchen-gallery-02.jpg");
+}
+
+@media (max-width: 780px) {
+  .kitchen-page .wardrobe-hero > img {
+    object-position: 52% center;
+  }
+}

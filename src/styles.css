@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&family=Marcellus&display=swap");
 
 :root {
   font-synthesis: none;
@@ -43,7 +43,7 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   background: var(--bg);
-  font-family: "Manrope", Arial, sans-serif;
+  font-family: "Instrument Sans", Arial, sans-serif;
 }
 
 a {

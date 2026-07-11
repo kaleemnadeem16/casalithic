@@ -10,7 +10,7 @@ function CollectionCard({ item, index }) {
         <h3>{item.title}</h3>
         <div>
           <span>{item.text}</span>
-          <a href="#contact" aria-label={`Inquire about ${item.title}`}>↗</a>
+          <a href={item.href || "#contact"} aria-label={`Explore the ${item.title} collection`}>↗</a>
         </div>
       </div>
     </article>

@@ -9,8 +9,14 @@ import Direction from "./sections/Direction/Direction";
 import Gallery from "./sections/Gallery/Gallery";
 import Contact from "./sections/Contact/Contact";
 import Footer from "./sections/Footer/Footer";
+import WardrobesPage from "./pages/Wardrobes/WardrobesPage";
+import KitchenPage from "./pages/Kitchen/KitchenPage";
 
 function App() {
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const isWardrobesPage = currentPath === "/collections/wardrobes";
+  const isKitchenPage = currentPath === "/collections/kitchen";
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.25,
@@ -69,6 +75,14 @@ function App() {
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);
+
+  if (isWardrobesPage) {
+    return <WardrobesPage />;
+  }
+
+  if (isKitchenPage) {
+    return <KitchenPage />;
+  }
 
   return (
     <div className="page">

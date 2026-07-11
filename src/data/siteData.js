@@ -29,15 +29,17 @@ export const heroContent = {
 export const collectionItems = [
   {
     title: "Wardrobes",
-    label: "Wood · Glass",
-    text: "Private dressing spaces where every detail turns the everyday into an occasion.",
+    label: "Fine Wood",
+    text: "Private timber dressing spaces that surround the everyday with rare distinction.",
     image: wardrobe,
+    href: "/collections/wardrobes",
   },
   {
     title: "Kitchen",
     label: "Wood · Steel · Bars",
     text: "Statement kitchens where beautiful materials make daily living feel effortless.",
     image: kitchen,
+    href: "/collections/kitchen",
   },
   {
     title: "Vanities and Wall Units",

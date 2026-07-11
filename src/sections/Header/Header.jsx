@@ -6,6 +6,8 @@ function Header() {
   const headerRef = useRef(null);
   const lastScrollRef = useRef(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isHomePage = window.location.pathname === "/";
+  const sectionLink = (section) => `${isHomePage ? "" : "/"}#${section}`;
 
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", isMenuOpen);
@@ -53,13 +55,30 @@ function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const renderNavLinks = () => (
+  const renderNavLinks = (mobile = false) => (
     <>
-      <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
-      <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-      <a href="#collections" onClick={() => setIsMenuOpen(false)}>Collections</a>
-      <a href="#gallery" onClick={() => setIsMenuOpen(false)}>Gallery</a>
-      <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+      <a href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
+      <a href={sectionLink("about")} onClick={() => setIsMenuOpen(false)}>About</a>
+      <div className={mobile ? "mobile-menu-group" : "header-nav-group"}>
+        <a href={sectionLink("collections")} onClick={() => setIsMenuOpen(false)}>Collections</a>
+        {mobile ? (
+          <div className="mobile-menu-subgroup">
+            <a className="mobile-menu-sub" href="/collections/wardrobes" onClick={() => setIsMenuOpen(false)}>
+              Wardrobes
+            </a>
+            <a className="mobile-menu-sub" href="/collections/kitchen" onClick={() => setIsMenuOpen(false)}>
+              Kitchen
+            </a>
+          </div>
+        ) : (
+          <div className="header-submenu">
+            <a href="/collections/wardrobes">Wardrobes</a>
+            <a href="/collections/kitchen">Kitchen</a>
+          </div>
+        )}
+      </div>
+      <a href={sectionLink("gallery")} onClick={() => setIsMenuOpen(false)}>Gallery</a>
+      <a href={sectionLink("contact")} onClick={() => setIsMenuOpen(false)}>Contact</a>
     </>
   );
 
@@ -70,15 +89,15 @@ function Header() {
         className={`site-header ${isMenuOpen ? "menu-is-open" : ""}`}
       >
         <div className="site-header-inner">
-          <a href="#home" className="brand" onClick={() => setIsMenuOpen(false)}>
+          <a href="/" className="brand" onClick={() => setIsMenuOpen(false)}>
             CASA LITHIC<sup>®</sup>
           </a>
           <nav className="header-nav desktop-nav" aria-label="Primary navigation">
-            {renderNavLinks()}
+            {renderNavLinks(false)}
           </nav>
           <a
             className="header-cta desktop-cta"
-            href="#contact"
+            href={sectionLink("contact")}
             onClick={() => setIsMenuOpen(false)}
           >
             Enter the World
@@ -103,11 +122,11 @@ function Header() {
         aria-hidden={!isMenuOpen}
       >
         <nav className="mobile-menu-nav" aria-label="Mobile navigation">
-          {renderNavLinks()}
+          {renderNavLinks(true)}
         </nav>
         <a
           className="mobile-menu-cta"
-          href="#contact"
+          href={sectionLink("contact")}
           onClick={() => setIsMenuOpen(false)}
         >
           Enter the World
