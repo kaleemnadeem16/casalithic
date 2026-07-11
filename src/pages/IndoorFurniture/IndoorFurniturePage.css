@@ -1,0 +1,21 @@
+.indoor-furniture-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.indoor-furniture-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.indoor-furniture-page .wardrobe-inquiry {
+  background-image: url("../../assets/indoor-furniture/gallery/indoor-furniture-gallery-09.jpg");
+}
+
+@media (max-width: 780px) {
+  .indoor-furniture-page .wardrobe-hero > img {
+    object-position: 64% center;
+  }
+
+  .indoor-furniture-page .wardrobe-craft-image img {
+    object-position: 60% center;
+  }
+}

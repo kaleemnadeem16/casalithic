@@ -74,6 +74,7 @@ export const collectionItems = [
     label: "Contemporary · Modern",
     text: "Sculptural comfort for living, dining, and moments made to be savoured.",
     image: indoorFurniture,
+    href: "/collections/indoor-furniture",
   },
   {
     title: "Outdoor Furniture",
