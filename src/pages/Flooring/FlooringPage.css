@@ -1,0 +1,21 @@
+.flooring-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.flooring-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.flooring-page .wardrobe-inquiry {
+  background-image: url("../../assets/flooring/gallery/flooring-gallery-09.jpg");
+}
+
+@media (max-width: 780px) {
+  .flooring-page .wardrobe-hero > img {
+    object-position: 56% center;
+  }
+
+  .flooring-page .wardrobe-craft-image img {
+    object-position: 55% center;
+  }
+}

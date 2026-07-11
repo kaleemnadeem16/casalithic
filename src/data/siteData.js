@@ -60,6 +60,7 @@ export const collectionItems = [
     label: "Eight selections",
     text: "Rich timber foundations that carry warmth and distinction through every room.",
     image: woodenFlooring,
+    href: "/collections/flooring",
   },
   {
     title: "Saunas and Cold Plunges",
