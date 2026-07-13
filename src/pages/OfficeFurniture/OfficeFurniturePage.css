@@ -1,0 +1,21 @@
+.office-furniture-page .wardrobe-hero > img {
+  object-position: center;
+}
+
+.office-furniture-page .wardrobe-craft-image img {
+  object-position: center;
+}
+
+.office-furniture-page .wardrobe-inquiry {
+  background-image: url("../../assets/office-furniture/gallery/office-furniture-gallery-09.jpg");
+}
+
+@media (max-width: 780px) {
+  .office-furniture-page .wardrobe-hero > img {
+    object-position: 62% center;
+  }
+
+  .office-furniture-page .wardrobe-craft-image img {
+    object-position: 52% center;
+  }
+}

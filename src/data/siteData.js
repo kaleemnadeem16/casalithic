@@ -7,7 +7,7 @@ import solidDoors from "../assets/casalithic-villa/web/solid-doors.jpg";
 import woodenFlooring from "../assets/casalithic-villa/web/wooden-flooring.jpg";
 import wellness from "../assets/casalithic-villa/web/wellness-enhanced.jpg";
 import salon from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.jpg";
-import officeFurniture from "../assets/casalithic-villa/web/office-furniture.jpg";
+import officeFurniture from "../assets/office-furniture/gallery/office-furniture-gallery-09.jpg";
 import cinemaFurniture from "../assets/casalithic-villa/web/cinema-furniture.png";
 
 export const heroSlides = [
@@ -95,6 +95,7 @@ export const collectionItems = [
     label: "Professional",
     text: "Executive pieces that make focus feel composed, confident, and quietly powerful.",
     image: officeFurniture,
+    href: "/collections/office-furniture",
   },
   {
     title: "Cinema Furniture",

@@ -18,6 +18,7 @@ import SaunasColdPlungesPage from "./pages/SaunasColdPlunges/SaunasColdPlungesPa
 import IndoorFurniturePage from "./pages/IndoorFurniture/IndoorFurniturePage";
 import OutdoorFurniturePage from "./pages/OutdoorFurniture/OutdoorFurniturePage";
 import SaloonFurniturePage from "./pages/SaloonFurniture/SaloonFurniturePage";
+import OfficeFurniturePage from "./pages/OfficeFurniture/OfficeFurniturePage";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
@@ -30,6 +31,7 @@ function App() {
   const isIndoorFurniturePage = currentPath === "/collections/indoor-furniture";
   const isOutdoorFurniturePage = currentPath === "/collections/outdoor-furniture";
   const isSaloonFurniturePage = currentPath === "/collections/saloon-furniture";
+  const isOfficeFurniturePage = currentPath === "/collections/office-furniture";
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -124,6 +126,10 @@ function App() {
 
   if (isSaloonFurniturePage) {
     return <SaloonFurniturePage />;
+  }
+
+  if (isOfficeFurniturePage) {
+    return <OfficeFurniturePage />;
   }
 
   return (
