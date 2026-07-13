@@ -7,7 +7,7 @@
   padding: 28px;
   background: rgba(7, 6, 5, 0.84);
   backdrop-filter: blur(12px);
-  animation: contact-modal-fade 0.28s ease both;
+  animation: contact-modal-backdrop-in 0.42s ease both;
 }
 
 .contact-modal-panel {
@@ -19,6 +19,15 @@
   overflow: auto;
   background: #f2ede6;
   box-shadow: 0 34px 100px rgba(0, 0, 0, 0.38);
+  animation: contact-modal-panel-in 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact-modal.is-closing {
+  animation: contact-modal-backdrop-out 0.42s ease both;
+}
+
+.contact-modal.is-closing .contact-modal-panel {
+  animation: contact-modal-panel-out 0.42s cubic-bezier(0.55, 0, 1, 0.45) both;
 }
 
 .contact-modal-close {
@@ -117,8 +126,26 @@
   font-size: clamp(2.1rem, 3vw, 3.2rem);
 }
 
-@keyframes contact-modal-fade {
-  from { opacity: 0; }
+@keyframes contact-modal-backdrop-in {
+  from { background-color: rgba(7, 6, 5, 0); backdrop-filter: blur(0); }
+}
+
+@keyframes contact-modal-backdrop-out {
+  to { background-color: rgba(7, 6, 5, 0); backdrop-filter: blur(0); }
+}
+
+@keyframes contact-modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(54px);
+  }
+}
+
+@keyframes contact-modal-panel-out {
+  to {
+    opacity: 0;
+    transform: translateY(54px);
+  }
 }
 
 @media (max-width: 900px) {
@@ -172,5 +199,14 @@
 
   .contact-modal-form {
     padding: 42px 22px 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal,
+  .contact-modal-panel,
+  .contact-modal.is-closing,
+  .contact-modal.is-closing .contact-modal-panel {
+    animation-duration: 0.01ms;
   }
 }

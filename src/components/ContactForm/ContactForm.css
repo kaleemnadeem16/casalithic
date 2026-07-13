@@ -65,6 +65,27 @@
   line-height: 1.6;
 }
 
+.contact-form-status {
+  margin-top: 8px !important;
+  font-weight: 600;
+}
+
+.contact-form-status.is-success {
+  color: #527052;
+}
+
+.contact-form-status.is-error {
+  color: #9b4038;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-submit {
   flex: 0 0 auto;
   min-height: 54px;
@@ -77,6 +98,11 @@
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.contact-submit:disabled {
+  cursor: wait;
+  opacity: 0.62;
 }
 
 .contact-form.is-compact {

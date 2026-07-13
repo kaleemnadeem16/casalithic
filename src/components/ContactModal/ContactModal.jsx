@@ -12,16 +12,36 @@ const triggerSelector = [
   '.wardrobe-inquiry a[href^="mailto:"]',
 ].join(", ");
 
+const CLOSE_DURATION = 420;
+
 function ContactModal() {
   const [isOpen, setIsOpen] = useState(() => window.location.hash === "#contact-modal");
+  const [isClosing, setIsClosing] = useState(false);
   const closeRef = useRef(null);
   const previousFocusRef = useRef(null);
+  const closeTimerRef = useRef(null);
+  const closingRef = useRef(false);
+
+  const openModal = () => {
+    window.clearTimeout(closeTimerRef.current);
+    closingRef.current = false;
+    setIsClosing(false);
+    setIsOpen(true);
+  };
 
   const closeModal = () => {
-    setIsOpen(false);
+    if (!isOpen || closingRef.current) return;
+    closingRef.current = true;
+    setIsClosing(true);
     if (window.location.hash === "#contact-modal") {
       window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     }
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : CLOSE_DURATION;
+    closeTimerRef.current = window.setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      closingRef.current = false;
+    }, delay);
   };
 
   useEffect(() => {
@@ -31,20 +51,22 @@ function ContactModal() {
       if (!trigger || trigger.closest(".contact-modal")) return;
       event.preventDefault();
       previousFocusRef.current = trigger;
-      setIsOpen(true);
+      openModal();
     };
 
     const openFromHash = () => {
-      if (window.location.hash === "#contact-modal") setIsOpen(true);
+      if (window.location.hash === "#contact-modal") openModal();
     };
 
-    document.addEventListener("click", openFromTrigger);
+    document.addEventListener("click", openFromTrigger, true);
     window.addEventListener("hashchange", openFromHash);
     return () => {
-      document.removeEventListener("click", openFromTrigger);
+      document.removeEventListener("click", openFromTrigger, true);
       window.removeEventListener("hashchange", openFromHash);
     };
   }, []);
+
+  useEffect(() => () => window.clearTimeout(closeTimerRef.current), []);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -69,7 +91,7 @@ function ContactModal() {
 
   return (
     <div
-      className="contact-modal"
+      className={`contact-modal ${isClosing ? "is-closing" : "is-opening"}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-modal-title"

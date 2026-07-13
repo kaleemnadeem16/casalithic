@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./ContactForm.css";
 
 const collections = [
@@ -15,24 +16,33 @@ const collections = [
   "Several collections",
 ];
 
-function ContactForm({ idPrefix = "contact", compact = false, onPrepared }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = `Casa Lithic project enquiry — ${data.get("projectType")}`;
-    const body = [
-      `Name: ${data.get("name")}`,
-      `Email: ${data.get("email")}`,
-      `Location: ${data.get("location") || "Not specified"}`,
-      `Project type: ${data.get("projectType")}`,
-      `Preferred collection: ${data.get("collection") || "Not specified"}`,
-      "",
-      "Project vision:",
-      data.get("message"),
-    ].join("\n");
+function ContactForm({ idPrefix = "contact", compact = false, onSuccess }) {
+  const [submitState, setSubmitState] = useState({ status: "idle", message: "" });
 
-    onPrepared?.();
-    window.location.href = `mailto:sales@casalithic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    setSubmitState({ status: "submitting", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || "We could not send your enquiry.");
+
+      form.reset();
+      setSubmitState({ status: "success", message: result.message });
+      onSuccess?.();
+    } catch (error) {
+      setSubmitState({
+        status: "error",
+        message: error.message || "We could not send your enquiry. Please try again.",
+      });
+    }
   };
 
   return (
@@ -75,9 +85,22 @@ function ContactForm({ idPrefix = "contact", compact = false, onPrepared }) {
           placeholder="Tell us about the spaces, atmosphere and experience you would like to create."
         />
       </div>
+      <div className="contact-honeypot" aria-hidden="true">
+        <label htmlFor={`${idPrefix}-website`}>Website</label>
+        <input id={`${idPrefix}-website`} name="website" type="text" tabIndex="-1" autoComplete="off" />
+      </div>
       <div className="contact-form-footer">
-        <p>Submitting will open your email application with the enquiry prepared for your review.</p>
-        <button className="contact-submit" type="submit">Prepare enquiry ↗</button>
+        <div>
+          <p>Your details are sent securely to the Casa Lithic® team.</p>
+          {submitState.message && (
+            <p className={`contact-form-status is-${submitState.status}`} role="status">
+              {submitState.message}
+            </p>
+          )}
+        </div>
+        <button className="contact-submit" type="submit" disabled={submitState.status === "submitting"}>
+          {submitState.status === "submitting" ? "Sending…" : "Send enquiry ↗"}
+        </button>
       </div>
     </form>
   );

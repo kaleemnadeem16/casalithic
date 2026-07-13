@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&amp;display=swap');
+    </style>
+    <clipPath id="hexClip">
+      <polygon points="60,6 102,30 102,78 60,102 18,78 18,30"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── ICON: Hexagonal shield with wood grain texture inside ── -->
+  <!-- Outer hex — double border like Image 1 -->
+  <polygon points="60,6 104,30 104,78 60,102 16,78 16,30" fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
+  <!-- Inner hex -->
+  <polygon points="60,14 97,35 97,73 60,94 23,73 23,35" fill="none" stroke="#1a1a1a" stroke-width="0.7"/>
+
+  <!-- Wood grain lines inside hex — organic vertical curves clipped to hex -->
+  <g clip-path="url(#hexClip)">
+    <!-- Central flame grain pattern -->
+    <path d="M60 14 Q55 30 60 48 Q65 66 60 94" fill="none" stroke="#1a1a1a" stroke-width="0.9"/>
+    <path d="M60 14 Q50 32 55 52 Q58 68 54 94" fill="none" stroke="#1a1a1a" stroke-width="0.7"/>
+    <path d="M60 14 Q70 32 65 52 Q62 68 66 94" fill="none" stroke="#1a1a1a" stroke-width="0.7"/>
+    <path d="M60 14 Q44 34 48 56 Q50 72 44 94" fill="none" stroke="#1a1a1a" stroke-width="0.55"/>
+    <path d="M60 14 Q76 34 72 56 Q70 72 76 94" fill="none" stroke="#1a1a1a" stroke-width="0.55"/>
+    <path d="M60 20 Q37 38 40 60 Q42 76 34 94" fill="none" stroke="#1a1a1a" stroke-width="0.4" opacity="0.6"/>
+    <path d="M60 20 Q83 38 80 60 Q78 76 86 94" fill="none" stroke="#1a1a1a" stroke-width="0.4" opacity="0.6"/>
+    <!-- Knot oval at centre -->
+    <ellipse cx="60" cy="54" rx="5" ry="7" fill="none" stroke="#1a1a1a" stroke-width="0.8"/>
+  </g>
+
+  <!-- ── DIVIDER ── -->
+  <line x1="120" y1="16" x2="120" y2="104" stroke="#1a1a1a" stroke-width="0.6" opacity="0.35"/>
+
+  <!-- ── WORDMARK ── -->
+  <text x="136" y="59" font-family="'EB Garamond', Georgia, serif" font-size="33" font-weight="400" letter-spacing="5" fill="#1a1a1a">CASALITHIC</text>
+  <text x="138" y="78" font-family="'EB Garamond', Georgia, serif" font-size="10" font-weight="400" letter-spacing="6" fill="#1a1a1a" opacity="0.58">INTERIORS &amp; FURNISHINGS</text>
+</svg>

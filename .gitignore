@@ -1,41 +1,6 @@
-# Dependencies
 node_modules/
-
-# Production build
 dist/
-build/
-
-# Unused source/export media kept locally
-/assets/
-
-# Local environment
 .env
 .env.*
 !.env.example
-
-# Logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-devserver-*.err
-devserver-*.log
-preview-*.err
-preview-*.log
-
-# Editor and OS files
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Temporary files
-*.tmp
-*.temp
-.cache/
-.vite/
-.chrome-cdp-temp/
-
-# Local project notes/briefs
-Casalithic Website Brief.docx

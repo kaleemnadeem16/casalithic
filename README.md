@@ -29,11 +29,25 @@ Create a production build:
 npm run build
 ```
 
-Preview the production build locally:
+Serve the production build and contact API:
 
 ```bash
-npm run preview
+cp .env.example .env
+npm start
 ```
+
+Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `MAIL_FROM`
+in the server-side `.env` before starting production. Do not use `VITE_` prefixes
+for mail credentials, because Vite-prefixed variables are exposed to the browser.
+
+Contact submissions are handled by `POST /api/contact` and delivered server-side to:
+
+- `techtidekaleem@gmail.com`
+- `sales@casalithic.com`
+- `info@casalithic.com`
+
+The API validates and limits request bodies, includes a honeypot and basic IP rate
+limiting, and never sends SMTP credentials or the recipient configuration to the client.
 
 ## Project Structure
 
@@ -44,6 +58,9 @@ src/
   sections/
   App.jsx
   main.jsx
+server/
+  contactApi.js
+  index.js
 ```
 
 ## Notes

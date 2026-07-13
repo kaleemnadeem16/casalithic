@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 90" width="510" height="90">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&amp;display=swap');</style>
+    <clipPath id="c3"><rect x="0" y="0" width="64" height="64" rx="3"/></clipPath>
+  </defs>
+  <g transform="translate(0, 13)">
+    <rect x="0" y="0" width="64" height="64" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="32" y1="0"  x2="32" y2="64" stroke="#1a1a1a" stroke-width="1.0"/>
+    <line x1="0"  y1="32" x2="64" y2="32" stroke="#1a1a1a" stroke-width="1.0"/>
+    <g clip-path="url(#c3)">
+      <path d="M8 0  Q6 8  8 16 Q10 24 8 32"  fill="none" stroke="#1a1a1a" stroke-width="0.75"/>
+      <path d="M16 0 Q13 8 16 16 Q19 24 16 32" fill="none" stroke="#1a1a1a" stroke-width="0.6"/>
+      <path d="M24 0 Q22 8 24 16 Q26 24 24 32" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.6"/>
+      <path d="M36 8  Q44 14 36 22 Q28 28 36 32" fill="none" stroke="#1a1a1a" stroke-width="0.75"/>
+      <path d="M44 4  Q52 12 44 20 Q36 26 42 32" fill="none" stroke="#1a1a1a" stroke-width="0.55" opacity="0.65"/>
+      <path d="M10 36 Q16 44 12 52 Q10 56 14 64" fill="none" stroke="#1a1a1a" stroke-width="0.65"/>
+      <path d="M22 36 Q26 44 20 54 Q17 58 22 64" fill="none" stroke="#1a1a1a" stroke-width="0.5" opacity="0.6"/>
+      <line x1="32" y1="40" x2="64" y2="40" stroke="#1a1a1a" stroke-width="0.55" opacity="0.5"/>
+      <line x1="32" y1="48" x2="64" y2="48" stroke="#1a1a1a" stroke-width="0.55" opacity="0.5"/>
+      <line x1="32" y1="56" x2="64" y2="56" stroke="#1a1a1a" stroke-width="0.55" opacity="0.5"/>
+      <line x1="40" y1="32" x2="40" y2="64" stroke="#1a1a1a" stroke-width="0.55" opacity="0.4"/>
+      <line x1="52" y1="32" x2="52" y2="64" stroke="#1a1a1a" stroke-width="0.55" opacity="0.4"/>
+    </g>
+  </g>
+  <text x="78" y="50" font-family="'EB Garamond', Georgia, serif" font-size="33" font-weight="400" letter-spacing="5" fill="#1a1a1a">CASALITHIC</text>
+  <text x="79" y="69" font-family="'EB Garamond', Georgia, serif" font-size="10" font-weight="400" letter-spacing="6" fill="#1a1a1a" opacity="0.58">LIVING &amp; SPACES</text>
+</svg>

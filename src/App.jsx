@@ -59,6 +59,7 @@ function App() {
     frame = requestAnimationFrame(raf);
 
     const onAnchorClick = (event) => {
+      if (event.defaultPrevented) return;
       const link = event.target.closest('a[href^="#"]');
       if (!link) return;
 
