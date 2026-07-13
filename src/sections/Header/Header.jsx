@@ -93,6 +93,9 @@ function Header() {
             <a className="mobile-menu-sub" href="/collections/office-furniture" onClick={() => setIsMenuOpen(false)}>
               Office Furniture
             </a>
+            <a className="mobile-menu-sub" href="/collections/cinema-furniture" onClick={() => setIsMenuOpen(false)}>
+              Cinema Furniture
+            </a>
           </div>
         ) : (
           <div className="header-submenu">
@@ -106,6 +109,7 @@ function Header() {
             <a href="/collections/outdoor-furniture">Outdoor Furniture</a>
             <a href="/collections/saloon-furniture">Saloon Furniture</a>
             <a href="/collections/office-furniture">Office Furniture</a>
+            <a href="/collections/cinema-furniture">Cinema Furniture</a>
           </div>
         )}
       </div>

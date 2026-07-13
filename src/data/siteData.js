@@ -8,7 +8,7 @@ import woodenFlooring from "../assets/casalithic-villa/web/wooden-flooring.jpg";
 import wellness from "../assets/casalithic-villa/web/wellness-enhanced.jpg";
 import salon from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.jpg";
 import officeFurniture from "../assets/office-furniture/gallery/office-furniture-gallery-09.jpg";
-import cinemaFurniture from "../assets/casalithic-villa/web/cinema-furniture.png";
+import cinemaFurniture from "../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.jpg";
 
 export const heroSlides = [
   indoorFurniture,
@@ -102,6 +102,7 @@ export const collectionItems = [
     label: "Private Entertainment",
     text: "Deeply tailored seating that turns every screening into a first-class experience.",
     image: cinemaFurniture,
+    href: "/collections/cinema-furniture",
   },
 ];
 
