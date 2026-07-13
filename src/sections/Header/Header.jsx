@@ -133,7 +133,8 @@ function Header() {
           </nav>
           <a
             className="header-cta desktop-cta"
-            href="/contact"
+            href="#contact-modal"
+            data-contact-modal
             onClick={() => setIsMenuOpen(false)}
           >
             Enter the World
@@ -162,7 +163,8 @@ function Header() {
         </nav>
         <a
           className="mobile-menu-cta"
-          href="/contact"
+          href="#contact-modal"
+          data-contact-modal
           onClick={() => setIsMenuOpen(false)}
         >
           Enter the World

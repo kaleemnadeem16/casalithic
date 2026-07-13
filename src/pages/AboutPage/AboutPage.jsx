@@ -153,7 +153,7 @@ function AboutPage() {
             <span className="eyebrow">Begin your Casa Lithic® story</span>
             <h2>Let us create a world that feels made for you.</h2>
             <p>Share your vision and discover how every room can become part of one exceptional way of living.</p>
-            <a className="button button-solid" href="/contact">Begin a private consultation</a>
+            <a className="button button-solid" href="#contact-modal" data-contact-modal>Begin a private consultation</a>
           </div>
         </section>
       </main>

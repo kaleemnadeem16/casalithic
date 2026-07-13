@@ -199,7 +199,7 @@ function OfficeFurniturePage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a workplace equal to your ambition.</h2>
             <p>Share your vision and discover furniture composed around the way you think, meet and lead.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Office furniture collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Office furniture collection inquiry">
               Discuss your workplace <Arrow />
             </a>
           </div>

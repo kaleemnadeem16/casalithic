@@ -197,7 +197,7 @@ function DoorsPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create an entrance worthy of everything that lies beyond.</h2>
             <p>Share your residence and discover how crafted timber can transform every arrival.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Doors collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Doors collection inquiry">
               Discuss your doors <Arrow />
             </a>
           </div>

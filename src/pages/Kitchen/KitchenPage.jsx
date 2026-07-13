@@ -199,7 +199,7 @@ function KitchenPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create the heart of a home that could only be yours.</h2>
             <p>Share your residence and discover how exceptional the everyday can feel.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Kitchen collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Kitchen collection inquiry">
               Discuss your kitchen <Arrow />
             </a>
           </div>

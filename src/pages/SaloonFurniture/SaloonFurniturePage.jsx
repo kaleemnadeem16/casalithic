@@ -199,7 +199,7 @@ function SaloonFurniturePage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a salon clients remember before they leave.</h2>
             <p>Share your vision and discover professional furniture composed around your service and identity.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Saloon furniture collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Saloon furniture collection inquiry">
               Discuss your salon <Arrow />
             </a>
           </div>

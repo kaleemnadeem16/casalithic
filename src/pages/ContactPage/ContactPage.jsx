@@ -1,5 +1,6 @@
 import Header from "../../sections/Header/Header";
 import Footer from "../../sections/Footer/Footer";
+import ContactForm from "../../components/ContactForm/ContactForm";
 import heroImage from "../../assets/doors/gallery/doors-gallery-01.jpg";
 import kitchenImage from "../../assets/kitchen/gallery/kitchen-gallery-02.jpg";
 import wellnessImage from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.jpg";
@@ -25,24 +26,6 @@ const expectations = [
 ];
 
 function ContactPage() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = `Casa Lithic project enquiry — ${data.get("projectType")}`;
-    const body = [
-      `Name: ${data.get("name")}`,
-      `Email: ${data.get("email")}`,
-      `Location: ${data.get("location") || "Not specified"}`,
-      `Project type: ${data.get("projectType")}`,
-      `Preferred collection: ${data.get("collection") || "Not specified"}`,
-      "",
-      "Project vision:",
-      data.get("message"),
-    ].join("\n");
-
-    window.location.href = `mailto:inquiries@casalithic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
   return (
     <div className="page editorial-page contact-page" id="page-top">
       <Header />
@@ -75,11 +58,10 @@ function ContactPage() {
               <div className="contact-detail-list">
                 <div>
                   <span>Email</span>
-                  <a href="mailto:inquiries@casalithic.com">inquiries@casalithic.com</a>
-                </div>
-                <div>
-                  <span>Consultations</span>
-                  <strong>By private appointment</strong>
+                  <span className="contact-email-links">
+                    <a data-contact-direct href="mailto:sales@casalithic.com">sales@casalithic.com</a>
+                    <a data-contact-direct href="mailto:info@casalithic.com">info@casalithic.com</a>
+                  </span>
                 </div>
                 <div>
                   <span>Projects</span>
@@ -91,61 +73,7 @@ function ContactPage() {
             <div className="contact-form-wrap" data-reveal-block>
               <span>Project enquiry</span>
               <h3>Tell us what exceptional living means to you.</h3>
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="contact-field">
-                  <label htmlFor="contact-name">Name *</label>
-                  <input id="contact-name" name="name" type="text" autoComplete="name" required placeholder="Your name" />
-                </div>
-                <div className="contact-field">
-                  <label htmlFor="contact-email">Email *</label>
-                  <input id="contact-email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
-                </div>
-                <div className="contact-field">
-                  <label htmlFor="contact-location">Project location</label>
-                  <input id="contact-location" name="location" type="text" autoComplete="country-name" placeholder="City, country" />
-                </div>
-                <div className="contact-field">
-                  <label htmlFor="contact-project">Project type *</label>
-                  <select id="contact-project" name="projectType" required defaultValue="">
-                    <option value="" disabled>Select project type</option>
-                    <option>Complete residence</option>
-                    <option>Multiple rooms</option>
-                    <option>Single collection</option>
-                    <option>Professional space</option>
-                  </select>
-                </div>
-                <div className="contact-field is-wide">
-                  <label htmlFor="contact-collection">Collection of interest</label>
-                  <select id="contact-collection" name="collection" defaultValue="">
-                    <option value="">Select a collection</option>
-                    <option>Wardrobes</option>
-                    <option>Kitchen</option>
-                    <option>Vanities & Wall Units</option>
-                    <option>Doors</option>
-                    <option>Flooring</option>
-                    <option>Saunas & Cold Plunges</option>
-                    <option>Indoor Furniture</option>
-                    <option>Outdoor Furniture</option>
-                    <option>Saloon Furniture</option>
-                    <option>Office Furniture</option>
-                    <option>Cinema Furniture</option>
-                    <option>Several collections</option>
-                  </select>
-                </div>
-                <div className="contact-field is-wide">
-                  <label htmlFor="contact-message">Your vision *</label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    required
-                    placeholder="Tell us about the spaces, atmosphere and experience you would like to create."
-                  />
-                </div>
-                <div className="contact-form-footer">
-                  <p>Submitting will open your email application with the enquiry prepared for your review.</p>
-                  <button className="contact-submit" type="submit">Prepare enquiry ↗</button>
-                </div>
-              </form>
+              <ContactForm idPrefix="contact-page" />
             </div>
           </div>
         </section>

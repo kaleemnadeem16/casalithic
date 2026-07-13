@@ -218,7 +218,7 @@ function WardrobesPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a private world that could only be yours.</h2>
             <p>Share your residence and discover what it feels like when every detail is composed around you.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Wardrobe collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Wardrobe collection inquiry">
               Discuss your wardrobe <Arrow />
             </a>
           </div>

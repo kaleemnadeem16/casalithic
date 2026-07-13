@@ -199,7 +199,7 @@ function CinemaFurniturePage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a cinema where every seat feels like the best one.</h2>
             <p>Share your vision and discover furniture composed for the way you watch, gather and escape.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Cinema furniture collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Cinema furniture collection inquiry">
               Discuss your cinema <Arrow />
             </a>
           </div>

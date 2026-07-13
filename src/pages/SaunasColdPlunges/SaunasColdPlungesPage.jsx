@@ -198,7 +198,7 @@ function SaunasColdPlungesPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a wellness ritual that belongs entirely to your home.</h2>
             <p>Share your residence and discover how warmth, cold and calm can become one private sanctuary.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Saunas and cold plunges collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Saunas and cold plunges collection inquiry">
               Discuss your sanctuary <Arrow />
             </a>
           </div>

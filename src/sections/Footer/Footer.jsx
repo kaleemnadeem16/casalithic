@@ -16,7 +16,7 @@ function Footer() {
           <a href="/#collections">Collections</a>
           <a href="/#direction">Approach</a>
           <a href="/gallery">Gallery</a>
-          <a href="/contact">Contact</a>
+          <a href="#contact-modal" data-contact-modal>Contact</a>
         </nav>
       </div>
       <div className="footer-bottom">

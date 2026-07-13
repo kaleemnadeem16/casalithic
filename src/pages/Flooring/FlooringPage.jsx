@@ -197,7 +197,7 @@ function FlooringPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create the foundation for a home of lasting distinction.</h2>
             <p>Share your residence and discover the timber, tone and pattern that belong within it.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Flooring collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Flooring collection inquiry">
               Discuss your flooring <Arrow />
             </a>
           </div>

@@ -158,7 +158,7 @@ function GalleryPage() {
             <span className="eyebrow">Imagine your residence</span>
             <h2>Which moments should your home make exceptional?</h2>
             <p>Tell us how you want to live, and we will compose the spaces, furniture and details around you.</p>
-            <a className="button button-solid" href="/contact">Begin a private consultation</a>
+            <a className="button button-solid" href="#contact-modal" data-contact-modal>Begin a private consultation</a>
           </div>
         </section>
       </main>

@@ -11,11 +11,8 @@ function Contact() {
             can feel when every room is created around you.
           </p>
           <div className="contact-actions">
-            <a className="contact-primary" href="mailto:inquiries@casalithic.com?subject=Project inquiry">
+            <a className="contact-primary" href="#contact-modal" data-contact-modal>
               Begin your private consultation <span>↗</span>
-            </a>
-            <a className="contact-secondary" href="mailto:inquiries@casalithic.com?subject=Catalog request">
-              Explore the collection
             </a>
           </div>
         </div>

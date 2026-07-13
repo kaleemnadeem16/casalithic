@@ -198,7 +198,7 @@ function IndoorFurniturePage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us compose rooms that could belong to no one else.</h2>
             <p>Share your residence and discover furniture selected around the way you live.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Indoor furniture collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Indoor furniture collection inquiry">
               Discuss your interior <Arrow />
             </a>
           </div>

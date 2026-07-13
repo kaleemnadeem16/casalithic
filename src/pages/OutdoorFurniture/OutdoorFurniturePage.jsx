@@ -198,7 +198,7 @@ function OutdoorFurniturePage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create an outdoor world worthy of the view.</h2>
             <p>Share your residence and discover furniture composed around the way you live outside.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Outdoor furniture collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Outdoor furniture collection inquiry">
               Discuss your outdoors <Arrow />
             </a>
           </div>

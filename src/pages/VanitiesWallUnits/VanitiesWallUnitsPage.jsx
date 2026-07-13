@@ -198,7 +198,7 @@ function VanitiesWallUnitsPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a composition that belongs entirely to your home.</h2>
             <p>Share your residence and discover how beautifully order can become part of the architecture.</p>
-            <a className="button button-solid" href="mailto:inquiries@casalithic.com?subject=Vanities and wall units collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Vanities and wall units collection inquiry">
               Discuss your project <Arrow />
             </a>
           </div>

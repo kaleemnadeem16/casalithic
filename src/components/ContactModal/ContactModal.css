@@ -1,0 +1,176 @@
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(7, 6, 5, 0.84);
+  backdrop-filter: blur(12px);
+  animation: contact-modal-fade 0.28s ease both;
+}
+
+.contact-modal-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  width: min(1160px, 100%);
+  max-height: calc(100svh - 56px);
+  overflow: auto;
+  background: #f2ede6;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.38);
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 2;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(23, 20, 18, 0.22);
+  border-radius: 50%;
+  background: rgba(242, 237, 230, 0.9);
+  cursor: pointer;
+}
+
+.contact-modal-close span {
+  position: absolute;
+  width: 17px;
+  height: 1px;
+  background: var(--ink);
+}
+
+.contact-modal-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.contact-modal-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.contact-modal-intro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 720px;
+  padding: 72px 48px;
+  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(12, 10, 8, 0.88), rgba(12, 10, 8, 0.96)),
+    url("../../assets/doors/gallery/doors-gallery-01.jpg") center / cover;
+}
+
+.contact-modal-intro h2 {
+  max-width: 9ch;
+  color: var(--white);
+  font-size: clamp(3.2rem, 4.5vw, 5rem);
+}
+
+.contact-modal-intro > p {
+  max-width: 40ch;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+}
+
+.contact-modal-emails {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 52px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-modal-emails span {
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-modal-emails a {
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Marcellus", Georgia, serif;
+  font-size: 1.08rem;
+}
+
+.contact-modal-form {
+  padding: 66px 58px 52px;
+}
+
+.contact-modal-form > span {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-modal-form > h3 {
+  max-width: 14ch;
+  margin-top: 14px;
+  font-size: clamp(2.1rem, 3vw, 3.2rem);
+}
+
+@keyframes contact-modal-fade {
+  from { opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .contact-modal-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-modal-intro {
+    min-height: 0;
+    padding: 64px 32px 42px;
+  }
+
+  .contact-modal-intro h2 {
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 9vw, 4rem);
+  }
+
+  .contact-modal-emails {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 780px) {
+  .contact-modal {
+    align-items: start;
+    padding: 10px;
+  }
+
+  .contact-modal-panel {
+    max-height: calc(100svh - 20px);
+  }
+
+  .contact-modal-close {
+    position: sticky;
+    top: 14px;
+    float: right;
+    margin: 14px 14px -58px auto;
+  }
+
+  .contact-modal-intro {
+    padding: 70px 22px 36px;
+  }
+
+  .contact-modal-intro h2 {
+    font-size: clamp(2.6rem, 12vw, 3.6rem);
+  }
+
+  .contact-modal-intro > p {
+    margin-top: 20px;
+  }
+
+  .contact-modal-form {
+    padding: 42px 22px 34px;
+  }
+}
