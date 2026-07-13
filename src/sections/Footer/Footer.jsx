@@ -2,7 +2,6 @@ import "./Footer.css";
 
 function Footer() {
   const isHomePage = window.location.pathname === "/";
-  const sectionLink = (section) => `${isHomePage ? "" : "/"}#${section}`;
 
   return (
     <footer className="site-footer">
@@ -13,11 +12,11 @@ function Footer() {
           more effortless, and entirely exceptional.
         </p>
         <nav className="footer-nav">
-          <a href={sectionLink("about")}>About</a>
-          <a href={sectionLink("collections")}>Collections</a>
-          <a href={sectionLink("direction")}>Approach</a>
-          <a href={sectionLink("gallery")}>Gallery</a>
-          <a href={sectionLink("contact")}>Contact</a>
+          <a href="/about">About</a>
+          <a href="/#collections">Collections</a>
+          <a href="/#direction">Approach</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/contact">Contact</a>
         </nav>
       </div>
       <div className="footer-bottom">

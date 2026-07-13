@@ -58,7 +58,7 @@ function Header() {
   const renderNavLinks = (mobile = false) => (
     <>
       <a href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
-      <a href={sectionLink("about")} onClick={() => setIsMenuOpen(false)}>About</a>
+      <a href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
       <div className={mobile ? "mobile-menu-group" : "header-nav-group"}>
         <a href={sectionLink("collections")} onClick={() => setIsMenuOpen(false)}>Collections</a>
         {mobile ? (
@@ -113,8 +113,8 @@ function Header() {
           </div>
         )}
       </div>
-      <a href={sectionLink("gallery")} onClick={() => setIsMenuOpen(false)}>Gallery</a>
-      <a href={sectionLink("contact")} onClick={() => setIsMenuOpen(false)}>Contact</a>
+      <a href="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</a>
+      <a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
     </>
   );
 
@@ -133,7 +133,7 @@ function Header() {
           </nav>
           <a
             className="header-cta desktop-cta"
-            href={sectionLink("contact")}
+            href="/contact"
             onClick={() => setIsMenuOpen(false)}
           >
             Enter the World
@@ -162,7 +162,7 @@ function Header() {
         </nav>
         <a
           className="mobile-menu-cta"
-          href={sectionLink("contact")}
+          href="/contact"
           onClick={() => setIsMenuOpen(false)}
         >
           Enter the World

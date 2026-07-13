@@ -20,6 +20,9 @@ import OutdoorFurniturePage from "./pages/OutdoorFurniture/OutdoorFurniturePage"
 import SaloonFurniturePage from "./pages/SaloonFurniture/SaloonFurniturePage";
 import OfficeFurniturePage from "./pages/OfficeFurniture/OfficeFurniturePage";
 import CinemaFurniturePage from "./pages/CinemaFurniture/CinemaFurniturePage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "");
@@ -34,6 +37,9 @@ function App() {
   const isSaloonFurniturePage = currentPath === "/collections/saloon-furniture";
   const isOfficeFurniturePage = currentPath === "/collections/office-furniture";
   const isCinemaFurniturePage = currentPath === "/collections/cinema-furniture";
+  const isAboutPage = currentPath === "/about";
+  const isGalleryPage = currentPath === "/gallery";
+  const isContactPage = currentPath === "/contact";
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -136,6 +142,18 @@ function App() {
 
   if (isCinemaFurniturePage) {
     return <CinemaFurniturePage />;
+  }
+
+  if (isAboutPage) {
+    return <AboutPage />;
+  }
+
+  if (isGalleryPage) {
+    return <GalleryPage />;
+  }
+
+  if (isContactPage) {
+    return <ContactPage />;
   }
 
   return (
