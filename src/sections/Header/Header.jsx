@@ -84,6 +84,9 @@ function Header() {
             <a className="mobile-menu-sub" href="/collections/indoor-furniture" onClick={() => setIsMenuOpen(false)}>
               Indoor Furniture
             </a>
+            <a className="mobile-menu-sub" href="/collections/outdoor-furniture" onClick={() => setIsMenuOpen(false)}>
+              Outdoor Furniture
+            </a>
           </div>
         ) : (
           <div className="header-submenu">
@@ -94,6 +97,7 @@ function Header() {
             <a href="/collections/flooring">Flooring</a>
             <a href="/collections/saunas-cold-plunges">Saunas &amp; Cold Plunges</a>
             <a href="/collections/indoor-furniture">Indoor Furniture</a>
+            <a href="/collections/outdoor-furniture">Outdoor Furniture</a>
           </div>
         )}
       </div>

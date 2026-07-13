@@ -81,6 +81,7 @@ export const collectionItems = [
     label: "Modern",
     text: "Resort-level comfort created for unhurried days and elegant evenings outdoors.",
     image: outdoorFurniture,
+    href: "/collections/outdoor-furniture",
   },
   {
     title: "Saloon Furniture",
