@@ -29,6 +29,44 @@ Create a production build:
 npm run build
 ```
 
+The build regenerates `public/sitemap.xml` with Italian and English URLs before
+Vite creates the production bundle.
+
+## Image Optimization
+
+All content photography in `src/assets` uses WebP. To convert newly added JPG,
+JPEG, or PNG content images and automatically update JSX/CSS references:
+
+```bash
+npm run images:webp
+```
+
+This keeps the originals for review. After confirming the WebP output, remove
+the original content files with:
+
+```bash
+npm run images:webp:clean
+```
+
+The converter uses WebP quality 82 by default. A custom quality or forced
+reconversion can be run directly:
+
+```bash
+node scripts/convert-images-to-webp.mjs --quality=86 --force
+```
+
+PNG favicon and Apple touch icon files in `public/` remain PNG because those are
+platform interface assets rather than content photography.
+
+## SEO and Languages
+
+- Italian is the default language on unprefixed URLs.
+- English pages use `/en/...` and can be opened directly.
+- Every route has localized titles, descriptions, canonical URLs, alternate
+  language links, Open Graph/Twitter metadata, and JSON-LD structured data.
+- `public/robots.txt` references the automatically generated bilingual sitemap.
+- Run `npm run seo:sitemap` to regenerate only the sitemap.
+
 Build for PHP shared hosting:
 
 ```bash

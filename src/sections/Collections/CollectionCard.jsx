@@ -4,7 +4,7 @@ function CollectionCard({ item, index }) {
   return (
     <article className="collection-card">
       <div className="collection-card-image">
-        <img src={item.image} alt={`${item.title} collection`} />
+        <img src={item.image} alt={`${item.title} collection`} loading="lazy" decoding="async" />
         <span>{String(index + 1).padStart(2, "0")}</span>
       </div>
       <div className="collection-card-copy">

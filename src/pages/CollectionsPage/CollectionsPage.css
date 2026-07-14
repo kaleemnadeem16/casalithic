@@ -6,9 +6,11 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 88svh;
+  width: 100vw;
+  min-height: 92svh;
+  margin-left: calc(50% - 50vw);
   overflow: hidden;
-  padding: 150px max(32px, calc((100vw - 1320px) / 2)) 72px;
+  padding: 170px 48px 70px;
   color: var(--white);
   background: var(--dark);
 }
@@ -33,7 +35,7 @@
 .collections-page-hero-copy {
   position: relative;
   z-index: 1;
-  width: min(760px, 76vw);
+  width: 100%;
 }
 
 .collections-page-hero-copy h1 {
@@ -52,8 +54,8 @@
 
 .collections-page-scroll {
   position: absolute;
-  right: max(32px, calc((100vw - 1320px) / 2));
-  bottom: 76px;
+  right: 48px;
+  bottom: 70px;
   z-index: 1;
   display: inline-flex;
   align-items: center;

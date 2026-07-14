@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import Header from "../../sections/Header/Header";
 import Footer from "../../sections/Footer/Footer";
-import gallery01 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-01.jpg";
-import gallery02 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-02.jpg";
-import gallery03 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-03.jpg";
-import gallery04 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-04.jpg";
-import gallery06 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-06.jpg";
-import gallery07 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-07.jpg";
-import gallery08 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-08.jpg";
-import gallery09 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.jpg";
+import gallery01 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-01.webp";
+import gallery02 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-02.webp";
+import gallery03 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-03.webp";
+import gallery04 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-04.webp";
+import gallery06 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-06.webp";
+import gallery07 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-07.webp";
+import gallery08 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-08.webp";
+import gallery09 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.webp";
 import "../Wardrobes/WardrobesPage.css";
 import "./SaunasColdPlungesPage.css";
 

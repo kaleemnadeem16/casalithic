@@ -1,6 +1,7 @@
 import { useLayoutEffect } from "react";
 import { italianPhraseTranslations, italianTranslations } from "./italianTranslations";
 import { getLanguageFromPath } from "./language";
+import { getSeoPage } from "./seoData";
 
 const TRANSLATED_ATTRIBUTES = ["aria-label", "placeholder", "title"];
 const SKIPPED_PARENTS = new Set(["SCRIPT", "STYLE", "NOSCRIPT"]);
@@ -79,24 +80,42 @@ function translateTree(root) {
   }
 }
 
+function setMeta(attribute, key, content) {
+  let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  element.content = content;
+}
+
 function setSearchMetadata(language) {
-  const cleanPath = window.location.pathname === "/en"
-    ? "/"
-    : window.location.pathname.replace(/^\/en(?=\/)/, "");
-  const italianUrl = `https://casalithic.com${cleanPath}`;
-  const englishUrl = `https://casalithic.com${cleanPath === "/" ? "/en" : `/en${cleanPath}`}`;
+  const page = getSeoPage(window.location.pathname, language);
+  const italianUrl = `https://casalithic.com${page.route === "/" ? "/" : page.route}`;
+  const englishUrl = `https://casalithic.com${page.route === "/" ? "/en" : `/en${page.route}`}`;
+  const currentUrl = language === "it" ? italianUrl : englishUrl;
+  const imageUrl = new URL(page.image, "https://casalithic.com").href;
 
   document.documentElement.lang = language;
-  document.title = language === "it"
-    ? "Casa Lithic® | L'arte dell'abitare di lusso"
-    : "Casa Lithic® | The Art of Luxury Living";
-
-  const description = document.querySelector('meta[name="description"]');
-  if (description) {
-    description.content = language === "it"
-      ? "Casa Lithic® crea interni completi di lusso, arredi d'eccellenza e spazi privati pensati per rendere straordinaria la vita di ogni giorno."
-      : "Casa Lithic® creates complete luxury interiors, premium furniture, and personal spaces designed to make every day feel exceptional.";
-  }
+  document.title = page.title;
+  setMeta("name", "description", page.description);
+  setMeta("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  setMeta("property", "og:type", "website");
+  setMeta("property", "og:site_name", "Casa Lithic®");
+  setMeta("property", "og:title", page.title);
+  setMeta("property", "og:description", page.description);
+  setMeta("property", "og:url", currentUrl);
+  setMeta("property", "og:image", imageUrl);
+  setMeta("property", "og:image:type", "image/webp");
+  setMeta("property", "og:image:alt", page.name);
+  setMeta("property", "og:locale", language === "it" ? "it_IT" : "en_US");
+  setMeta("property", "og:locale:alternate", language === "it" ? "en_US" : "it_IT");
+  setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:title", page.title);
+  setMeta("name", "twitter:description", page.description);
+  setMeta("name", "twitter:image", imageUrl);
+  setMeta("name", "twitter:image:alt", page.name);
 
   const links = [
     ["canonical", language === "it" ? italianUrl : englishUrl],
@@ -116,6 +135,72 @@ function setSearchMetadata(language) {
     if (key !== "canonical") link.hreflang = key.replace("alternate-", "").replace("default", "x-default");
     link.href = href;
   });
+
+  const homeName = language === "it" ? "Home" : "Home";
+  const collectionsName = language === "it" ? "Collezioni" : "Collections";
+  const breadcrumbItems = [{ name: homeName, url: language === "it" ? "https://casalithic.com/" : "https://casalithic.com/en" }];
+  if (page.route.startsWith("/collections/")) {
+    breadcrumbItems.push({
+      name: collectionsName,
+      url: language === "it" ? "https://casalithic.com/collections" : "https://casalithic.com/en/collections",
+    });
+  }
+  if (page.route !== "/") breadcrumbItems.push({ name: page.name, url: currentUrl });
+
+  const graph = [
+    {
+      "@type": "Organization",
+      "@id": "https://casalithic.com/#organization",
+      name: "Casa Lithic®",
+      url: "https://casalithic.com/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://casalithic.com/favicon.png",
+      },
+      email: ["sales@casalithic.com", "info@casalithic.com"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://casalithic.com/#website",
+      url: "https://casalithic.com/",
+      name: "Casa Lithic®",
+      publisher: { "@id": "https://casalithic.com/#organization" },
+      inLanguage: ["it", "en"],
+    },
+    {
+      "@type": page.type,
+      "@id": `${currentUrl}#webpage`,
+      url: currentUrl,
+      name: page.title,
+      description: page.description,
+      inLanguage: language,
+      isPartOf: { "@id": "https://casalithic.com/#website" },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: imageUrl,
+      },
+      breadcrumb: { "@id": `${currentUrl}#breadcrumb` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${currentUrl}#breadcrumb`,
+      itemListElement: breadcrumbItems.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        item: item.url,
+      })),
+    },
+  ];
+
+  let structuredData = document.head.querySelector("#casalithic-structured-data");
+  if (!structuredData) {
+    structuredData = document.createElement("script");
+    structuredData.id = "casalithic-structured-data";
+    structuredData.type = "application/ld+json";
+    document.head.appendChild(structuredData);
+  }
+  structuredData.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
 
 function LocalizationManager() {

@@ -69,7 +69,7 @@
   color: var(--white);
   background:
     linear-gradient(180deg, rgba(12, 10, 8, 0.88), rgba(12, 10, 8, 0.96)),
-    url("../../assets/doors/gallery/doors-gallery-01.jpg") center / cover;
+    url("../../assets/doors/gallery/doors-gallery-01.webp") center / cover;
 }
 
 .contact-modal-intro h2 {

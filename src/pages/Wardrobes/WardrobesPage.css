@@ -548,7 +548,7 @@
   padding: 110px 32px;
   overflow: hidden;
   color: var(--white);
-  background: url("../../assets/wardrobes/gallery/wardrobe-gallery-01.jpg") center / cover;
+  background: url("../../assets/wardrobes/gallery/wardrobe-gallery-01.webp") center / cover;
 }
 
 .wardrobe-inquiry-shade {

@@ -3,8 +3,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "images:webp": "node scripts/convert-images-to-webp.mjs",
+    "images:webp:clean": "node scripts/convert-images-to-webp.mjs --delete-originals",
+    "seo:sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.2",
@@ -13,5 +17,8 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "vite": "^8.0.16"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

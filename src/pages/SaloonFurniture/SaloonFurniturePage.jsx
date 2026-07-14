@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import Header from "../../sections/Header/Header";
 import Footer from "../../sections/Footer/Footer";
-import gallery01 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-01.jpg";
-import gallery02 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-02.jpg";
-import gallery03 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-03.jpg";
-import gallery04 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-04.jpg";
-import gallery05 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-05.jpg";
-import gallery06 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-06.jpg";
-import gallery07 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-07.jpg";
-import gallery08 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-08.jpg";
-import gallery09 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.jpg";
+import gallery01 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-01.webp";
+import gallery02 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-02.webp";
+import gallery03 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-03.webp";
+import gallery04 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-04.webp";
+import gallery05 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-05.webp";
+import gallery06 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-06.webp";
+import gallery07 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-07.webp";
+import gallery08 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-08.webp";
+import gallery09 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp";
 import "../Wardrobes/WardrobesPage.css";
 import "./SaloonFurniturePage.css";
 

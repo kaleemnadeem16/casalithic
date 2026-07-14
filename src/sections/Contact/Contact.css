@@ -3,7 +3,7 @@
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(12, 10, 8, 0.95), rgba(12, 10, 8, 0.72)),
-    url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.jpg") center 62% / cover;
+    url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.webp") center 62% / cover;
 }
 
 .contact-cta {
@@ -71,7 +71,7 @@
     padding: 72px 18px;
     background:
       linear-gradient(180deg, rgba(12, 10, 8, 0.94), rgba(12, 10, 8, 0.78)),
-      url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.jpg") center / cover;
+      url("../../assets/casalithic-villa/web/indoor-furniture-enhanced.webp") center / cover;
   }
 
   .contact-cta {

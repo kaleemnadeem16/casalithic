@@ -1,14 +1,14 @@
-import indoorFurniture from "../assets/casalithic-villa/web/indoor-furniture-enhanced.jpg";
-import outdoorFurniture from "../assets/casalithic-villa/web/outdoor-furniture-enhanced.jpg";
-import kitchen from "../assets/casalithic-villa/web/kitchen-enhanced.jpg";
-import wardrobe from "../assets/casalithic-villa/web/wardrobe-enhanced.jpg";
-import vanityWallUnit from "../assets/casalithic-villa/web/vanity-wall-unit.jpg";
-import solidDoors from "../assets/casalithic-villa/web/solid-doors.jpg";
-import woodenFlooring from "../assets/casalithic-villa/web/wooden-flooring.jpg";
-import wellness from "../assets/casalithic-villa/web/wellness-enhanced.jpg";
-import salon from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.jpg";
-import officeFurniture from "../assets/office-furniture/gallery/office-furniture-gallery-09.jpg";
-import cinemaFurniture from "../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.jpg";
+import indoorFurniture from "../assets/casalithic-villa/web/indoor-furniture-enhanced.webp";
+import outdoorFurniture from "../assets/casalithic-villa/web/outdoor-furniture-enhanced.webp";
+import kitchen from "../assets/casalithic-villa/web/kitchen-enhanced.webp";
+import wardrobe from "../assets/casalithic-villa/web/wardrobe-enhanced.webp";
+import vanityWallUnit from "../assets/casalithic-villa/web/vanity-wall-unit.webp";
+import solidDoors from "../assets/casalithic-villa/web/solid-doors.webp";
+import woodenFlooring from "../assets/casalithic-villa/web/wooden-flooring.webp";
+import wellness from "../assets/casalithic-villa/web/wellness-enhanced.webp";
+import salon from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp";
+import officeFurniture from "../assets/office-furniture/gallery/office-furniture-gallery-09.webp";
+import cinemaFurniture from "../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.webp";
 
 export const heroSlides = [
   indoorFurniture,

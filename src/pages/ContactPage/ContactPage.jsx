@@ -1,10 +1,10 @@
 import Header from "../../sections/Header/Header";
 import Footer from "../../sections/Footer/Footer";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import heroImage from "../../assets/doors/gallery/doors-gallery-01.jpg";
-import kitchenImage from "../../assets/kitchen/gallery/kitchen-gallery-02.jpg";
-import wellnessImage from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.jpg";
-import outdoorImage from "../../assets/outdoor-furniture/gallery/outdoor-furniture-gallery-09.jpg";
+import heroImage from "../../assets/doors/gallery/doors-gallery-01.webp";
+import kitchenImage from "../../assets/kitchen/gallery/kitchen-gallery-02.webp";
+import wellnessImage from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.webp";
+import outdoorImage from "../../assets/outdoor-furniture/gallery/outdoor-furniture-gallery-09.webp";
 import "../EditorialPages.css";
 
 const expectations = [

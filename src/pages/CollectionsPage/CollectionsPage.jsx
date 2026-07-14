@@ -1,9 +1,9 @@
 import Header from "../../sections/Header/Header";
 import Footer from "../../sections/Footer/Footer";
 import FreeSlider from "../../sections/Collections/FreeSlider";
-import heroImage from "../../assets/indoor-furniture/gallery/indoor-furniture-gallery-01.jpg";
-import philosophyImage from "../../assets/kitchen/gallery/kitchen-gallery-02.jpg";
-import closingImage from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.jpg";
+import heroImage from "../../assets/indoor-furniture/gallery/indoor-furniture-gallery-01.webp";
+import philosophyImage from "../../assets/kitchen/gallery/kitchen-gallery-02.webp";
+import closingImage from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.webp";
 import "../../sections/Collections/Collections.css";
 import "./CollectionsPage.css";
 
@@ -31,7 +31,13 @@ function CollectionsPage() {
       <Header />
       <main>
         <section className="collections-page-hero" aria-labelledby="collections-page-title">
-          <img src={heroImage} alt="Casa Lithic sculptural living collection in a refined private residence" />
+          <img
+            src={heroImage}
+            alt="Casa Lithic sculptural living collection in a refined private residence"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
           <div className="collections-page-hero-shade" />
           <div className="collections-page-hero-copy" data-reveal-block>
             <span className="eyebrow">The Casa Lithic® collections</span>
@@ -68,7 +74,7 @@ function CollectionsPage() {
 
         <section className="collections-page-philosophy">
           <div className="collections-page-philosophy-image" data-reveal-block>
-            <img src={philosophyImage} alt="Warm walnut Casa Lithic kitchen composed as part of the architecture" />
+            <img src={philosophyImage} alt="Warm walnut Casa Lithic kitchen composed as part of the architecture" loading="lazy" decoding="async" />
           </div>
           <div className="collections-page-philosophy-copy" data-reveal-block>
             <span className="eyebrow dark">One residence. One language.</span>
@@ -94,7 +100,7 @@ function CollectionsPage() {
         </section>
 
         <section className="collections-page-closing">
-          <img src={closingImage} alt="Private Casa Lithic wellness pavilion opening onto a quiet garden" />
+          <img src={closingImage} alt="Private Casa Lithic wellness pavilion opening onto a quiet garden" loading="lazy" decoding="async" />
           <div className="collections-page-closing-shade" />
           <div className="collections-page-closing-copy" data-reveal-block>
             <span className="eyebrow">Created around your life</span>
