@@ -57,6 +57,21 @@
   text-transform: uppercase;
 }
 
+.footer-languages {
+  display: inline-flex;
+  gap: 7px;
+}
+
+.footer-languages a {
+  color: rgba(255, 255, 255, 0.42);
+  transition: color 0.25s ease;
+}
+
+.footer-languages a:hover,
+.footer-languages a.is-active {
+  color: rgba(255, 255, 255, 0.88);
+}
+
 @media (max-width: 780px) {
   .site-footer {
     padding-top: 46px;

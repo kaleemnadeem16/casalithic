@@ -1,13 +1,56 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import {
+  getLanguageFromPath,
+  getLanguageSwitchPath,
+  localizePath,
+} from "../../i18n/language";
 import "./Header.css";
+
+const collectionLinks = [
+  ["Wardrobes", "/collections/wardrobes"],
+  ["Kitchen", "/collections/kitchen"],
+  ["Vanities & Wall Units", "/collections/vanities-wall-units"],
+  ["Doors", "/collections/doors"],
+  ["Flooring", "/collections/flooring"],
+  ["Saunas & Cold Plunges", "/collections/saunas-cold-plunges"],
+  ["Indoor Furniture", "/collections/indoor-furniture"],
+  ["Outdoor Furniture", "/collections/outdoor-furniture"],
+  ["Saloon Furniture", "/collections/saloon-furniture"],
+  ["Office Furniture", "/collections/office-furniture"],
+  ["Cinema Furniture", "/collections/cinema-furniture"],
+];
 
 function Header() {
   const headerRef = useRef(null);
   const lastScrollRef = useRef(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isHomePage = window.location.pathname === "/";
-  const sectionLink = (section) => `${isHomePage ? "" : "/"}#${section}`;
+  const language = getLanguageFromPath();
+  const collectionsLink = localizePath("/collections", language);
+
+  const renderLanguageSwitcher = (mobile = false) => (
+    <nav className={`language-switcher ${mobile ? "is-mobile" : ""}`} aria-label="Language selection">
+      <a
+        className={language === "it" ? "is-active" : ""}
+        href={getLanguageSwitchPath("it")}
+        hrefLang="it"
+        lang="it"
+        aria-current={language === "it" ? "true" : undefined}
+      >
+        IT
+      </a>
+      <span aria-hidden="true" />
+      <a
+        className={language === "en" ? "is-active" : ""}
+        href={getLanguageSwitchPath("en")}
+        hrefLang="en"
+        lang="en"
+        aria-current={language === "en" ? "true" : undefined}
+      >
+        EN
+      </a>
+    </nav>
+  );
 
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", isMenuOpen);
@@ -57,64 +100,28 @@ function Header() {
 
   const renderNavLinks = (mobile = false) => (
     <>
-      <a href="/" onClick={() => setIsMenuOpen(false)}>Home</a>
-      <a href="/about" onClick={() => setIsMenuOpen(false)}>About</a>
+      <a href={localizePath("/", language)} onClick={() => setIsMenuOpen(false)}>Home</a>
+      <a href={localizePath("/about", language)} onClick={() => setIsMenuOpen(false)}>About</a>
       <div className={mobile ? "mobile-menu-group" : "header-nav-group"}>
-        <a href={sectionLink("collections")} onClick={() => setIsMenuOpen(false)}>Collections</a>
+        <a href={collectionsLink} onClick={() => setIsMenuOpen(false)}>Collections</a>
         {mobile ? (
           <div className="mobile-menu-subgroup">
-            <a className="mobile-menu-sub" href="/collections/wardrobes" onClick={() => setIsMenuOpen(false)}>
-              Wardrobes
-            </a>
-            <a className="mobile-menu-sub" href="/collections/kitchen" onClick={() => setIsMenuOpen(false)}>
-              Kitchen
-            </a>
-            <a className="mobile-menu-sub" href="/collections/vanities-wall-units" onClick={() => setIsMenuOpen(false)}>
-              Vanities &amp; Wall Units
-            </a>
-            <a className="mobile-menu-sub" href="/collections/doors" onClick={() => setIsMenuOpen(false)}>
-              Doors
-            </a>
-            <a className="mobile-menu-sub" href="/collections/flooring" onClick={() => setIsMenuOpen(false)}>
-              Flooring
-            </a>
-            <a className="mobile-menu-sub" href="/collections/saunas-cold-plunges" onClick={() => setIsMenuOpen(false)}>
-              Saunas &amp; Cold Plunges
-            </a>
-            <a className="mobile-menu-sub" href="/collections/indoor-furniture" onClick={() => setIsMenuOpen(false)}>
-              Indoor Furniture
-            </a>
-            <a className="mobile-menu-sub" href="/collections/outdoor-furniture" onClick={() => setIsMenuOpen(false)}>
-              Outdoor Furniture
-            </a>
-            <a className="mobile-menu-sub" href="/collections/saloon-furniture" onClick={() => setIsMenuOpen(false)}>
-              Saloon Furniture
-            </a>
-            <a className="mobile-menu-sub" href="/collections/office-furniture" onClick={() => setIsMenuOpen(false)}>
-              Office Furniture
-            </a>
-            <a className="mobile-menu-sub" href="/collections/cinema-furniture" onClick={() => setIsMenuOpen(false)}>
-              Cinema Furniture
-            </a>
+            {collectionLinks.map(([label, href]) => (
+              <a className="mobile-menu-sub" href={localizePath(href, language)} onClick={() => setIsMenuOpen(false)} key={href}>
+                {label}
+              </a>
+            ))}
           </div>
         ) : (
           <div className="header-submenu">
-            <a href="/collections/wardrobes">Wardrobes</a>
-            <a href="/collections/kitchen">Kitchen</a>
-            <a href="/collections/vanities-wall-units">Vanities &amp; Wall Units</a>
-            <a href="/collections/doors">Doors</a>
-            <a href="/collections/flooring">Flooring</a>
-            <a href="/collections/saunas-cold-plunges">Saunas &amp; Cold Plunges</a>
-            <a href="/collections/indoor-furniture">Indoor Furniture</a>
-            <a href="/collections/outdoor-furniture">Outdoor Furniture</a>
-            <a href="/collections/saloon-furniture">Saloon Furniture</a>
-            <a href="/collections/office-furniture">Office Furniture</a>
-            <a href="/collections/cinema-furniture">Cinema Furniture</a>
+            {collectionLinks.map(([label, href]) => (
+              <a href={localizePath(href, language)} key={href}>{label}</a>
+            ))}
           </div>
         )}
       </div>
-      <a href="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</a>
-      <a href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+      <a href={localizePath("/gallery", language)} onClick={() => setIsMenuOpen(false)}>Gallery</a>
+      <a href={localizePath("/contact", language)} onClick={() => setIsMenuOpen(false)}>Contact</a>
     </>
   );
 
@@ -125,31 +132,37 @@ function Header() {
         className={`site-header ${isMenuOpen ? "menu-is-open" : ""}`}
       >
         <div className="site-header-inner">
-          <a href="/" className="brand" onClick={() => setIsMenuOpen(false)}>
+          <a href={localizePath("/", language)} className="brand" onClick={() => setIsMenuOpen(false)}>
             CASA LITHIC<sup>®</sup>
           </a>
           <nav className="header-nav desktop-nav" aria-label="Primary navigation">
             {renderNavLinks(false)}
           </nav>
-          <a
-            className="header-cta desktop-cta"
-            href="#contact-modal"
-            data-contact-modal
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Enter the World
-          </a>
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
-            aria-controls="site-menu"
-            onClick={() => setIsMenuOpen((open) => !open)}
-          >
-            <span />
-            <span />
-          </button>
+          <div className="header-actions desktop-cta">
+            {renderLanguageSwitcher(false)}
+            <a
+              className="header-cta"
+              href="#contact-modal"
+              data-contact-modal
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Enter the World
+            </a>
+          </div>
+          <div className="mobile-header-controls">
+            {renderLanguageSwitcher(false)}
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="site-menu"
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </header>
 

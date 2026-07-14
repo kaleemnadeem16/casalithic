@@ -23,9 +23,11 @@ import CinemaFurniturePage from "./pages/CinemaFurniture/CinemaFurniturePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import CollectionsPage from "./pages/CollectionsPage/CollectionsPage";
+import { stripLanguagePrefix } from "./i18n/language";
 
 function App() {
-  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const currentPath = stripLanguagePrefix(window.location.pathname).replace(/\/$/, "");
   const isWardrobesPage = currentPath === "/collections/wardrobes";
   const isKitchenPage = currentPath === "/collections/kitchen";
   const isVanitiesWallUnitsPage = currentPath === "/collections/vanities-wall-units";
@@ -40,6 +42,7 @@ function App() {
   const isAboutPage = currentPath === "/about";
   const isGalleryPage = currentPath === "/gallery";
   const isContactPage = currentPath === "/contact";
+  const isCollectionsPage = currentPath === "/collections";
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -155,6 +158,10 @@ function App() {
 
   if (isContactPage) {
     return <ContactPage />;
+  }
+
+  if (isCollectionsPage) {
+    return <CollectionsPage />;
   }
 
   return (

@@ -102,12 +102,55 @@
   justify-self: end;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(9, 8, 7, 0.26);
+  backdrop-filter: blur(10px);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.language-switcher span {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.language-switcher a {
+  transition: color 0.25s ease;
+}
+
+.language-switcher a:hover,
+.language-switcher a.is-active {
+  color: var(--white);
+}
+
 .header-cta,
 .mobile-menu-cta {
   padding: 12px 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
+}
+
+.language-switcher.is-mobile {
+  gap: 12px;
+  margin-top: -16px;
+  font-size: 0.76rem;
 }
 
 .menu-toggle {
@@ -123,6 +166,12 @@
   background: rgba(9, 8, 7, 0.42);
   backdrop-filter: blur(10px);
   cursor: pointer;
+}
+
+.mobile-header-controls {
+  display: none;
+  align-items: center;
+  gap: 9px;
 }
 
 .menu-toggle span {
@@ -256,5 +305,15 @@ body.mobile-menu-open {
   .menu-toggle {
     display: grid;
     flex: 0 0 44px;
+  }
+
+  .mobile-header-controls {
+    display: flex;
+  }
+
+  .mobile-header-controls .language-switcher {
+    min-height: 40px;
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }

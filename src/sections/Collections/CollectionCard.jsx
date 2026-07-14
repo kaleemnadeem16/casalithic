@@ -1,3 +1,5 @@
+import { localizePath } from "../../i18n/language";
+
 function CollectionCard({ item, index }) {
   return (
     <article className="collection-card">
@@ -10,7 +12,7 @@ function CollectionCard({ item, index }) {
         <h3>{item.title}</h3>
         <div>
           <span>{item.text}</span>
-          <a href={item.href || "#contact"} aria-label={`Explore the ${item.title} collection`}>↗</a>
+          <a href={localizePath(item.href || "#contact")} aria-label={`Explore the ${item.title} collection`}>↗</a>
         </div>
       </div>
     </article>
