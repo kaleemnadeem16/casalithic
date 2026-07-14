@@ -25,6 +25,7 @@ function Header() {
   const headerRef = useRef(null);
   const lastScrollRef = useRef(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
   const language = getLanguageFromPath();
   const collectionsLink = localizePath("/collections", language);
 
@@ -54,6 +55,8 @@ function Header() {
 
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", isMenuOpen);
+    document.documentElement.classList.toggle("mobile-menu-open", isMenuOpen);
+    if (!isMenuOpen) setIsCollectionsOpen(false);
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") setIsMenuOpen(false);
@@ -62,6 +65,7 @@ function Header() {
     window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.classList.remove("mobile-menu-open");
+      document.documentElement.classList.remove("mobile-menu-open");
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isMenuOpen]);
@@ -103,21 +107,43 @@ function Header() {
       <a href={localizePath("/", language)} onClick={() => setIsMenuOpen(false)}>Home</a>
       <a href={localizePath("/about", language)} onClick={() => setIsMenuOpen(false)}>About</a>
       <div className={mobile ? "mobile-menu-group" : "header-nav-group"}>
-        <a href={collectionsLink} onClick={() => setIsMenuOpen(false)}>Collections</a>
         {mobile ? (
-          <div className="mobile-menu-subgroup">
-            {collectionLinks.map(([label, href]) => (
-              <a className="mobile-menu-sub" href={localizePath(href, language)} onClick={() => setIsMenuOpen(false)} key={href}>
-                {label}
-              </a>
-            ))}
-          </div>
+          <>
+            <div className="mobile-menu-parent">
+              <a href={collectionsLink} onClick={() => setIsMenuOpen(false)}>Collections</a>
+              <button
+                className={`mobile-submenu-toggle ${isCollectionsOpen ? "is-open" : ""}`}
+                type="button"
+                aria-label={isCollectionsOpen ? "Close collection pages" : "Open collection pages"}
+                aria-expanded={isCollectionsOpen}
+                aria-controls="mobile-collection-pages"
+                onClick={() => setIsCollectionsOpen((open) => !open)}
+              >
+                <span />
+                <span />
+              </button>
+            </div>
+            <div
+              className={`mobile-menu-subgroup ${isCollectionsOpen ? "is-open" : ""}`}
+              id="mobile-collection-pages"
+              aria-hidden={!isCollectionsOpen}
+            >
+              {collectionLinks.map(([label, href]) => (
+                <a className="mobile-menu-sub" href={localizePath(href, language)} onClick={() => setIsMenuOpen(false)} key={href}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </>
         ) : (
-          <div className="header-submenu">
-            {collectionLinks.map(([label, href]) => (
-              <a href={localizePath(href, language)} key={href}>{label}</a>
-            ))}
-          </div>
+          <>
+            <a href={collectionsLink} onClick={() => setIsMenuOpen(false)}>Collections</a>
+            <div className="header-submenu">
+              {collectionLinks.map(([label, href]) => (
+                <a href={localizePath(href, language)} key={href}>{label}</a>
+              ))}
+            </div>
+          </>
         )}
       </div>
       <a href={localizePath("/gallery", language)} onClick={() => setIsMenuOpen(false)}>Gallery</a>

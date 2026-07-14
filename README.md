@@ -89,6 +89,26 @@ It sends from `sales@casalithic.com` by default. If the hosting mail setup requi
 another domain mailbox, set the `CONTACT_FROM_EMAIL` environment variable in the
 hosting control panel.
 
+### Contact form diagnostics
+
+Rejected form requests are written to
+`public_html/api/logs/contact-errors.jsonl`. Each response and log entry includes
+the same `requestId`, making an individual failure easy to trace. PHP runtime
+errors are written to `public_html/api/logs/php-errors.log`. These files contain
+diagnostic metadata only; form names, email addresses, locations, and message
+contents are not stored.
+
+The endpoint sends through PHP's built-in `mail()` function. A `mail_accepted`
+diagnostic means `mail()` handed the message to the hosting mail transport. If
+that event exists but no email arrives, delivery, mailbox, SPF/DKIM, or spam
+filtering must be checked in the hosting control panel.
+
+The complete `api/logs` directory is denied over HTTP by both the root and nested
+`.htaccess` files. Inspect the logs only through the hosting file manager or SSH.
+If a live 400 response creates no diagnostic entry, the request was rejected by
+the host's ModSecurity/WAF layer before PHP ran; use the response time and URL to
+ask the host for the matching security event.
+
 For local PHP testing after a build:
 
 ```bash
@@ -108,6 +128,7 @@ public/
   .htaccess
   api/
     contact.php
+    logs/             # Protected server-side contact diagnostics
 ```
 
 ## Notes

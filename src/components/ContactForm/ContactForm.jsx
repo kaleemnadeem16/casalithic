@@ -26,16 +26,35 @@ function ContactForm({ idPrefix = "contact", compact = false, onSuccess }) {
     setSubmitState({ status: "submitting", message: "" });
 
     try {
+      const body = new URLSearchParams();
+      Object.entries(data).forEach(([key, value]) => body.set(key, String(value)));
+
       const response = await fetch("/api/contact.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        },
+        body: body.toString(),
       });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.message || "We could not send your enquiry.");
+      const responseText = await response.text();
+      let result = {};
+
+      try {
+        result = responseText ? JSON.parse(responseText) : {};
+      } catch {
+        throw new Error("The server returned an unexpected response. Please email us directly.");
+      }
+
+      if (!response.ok) {
+        throw new Error(result.message || `We could not send your enquiry (error ${response.status}).`);
+      }
 
       form.reset();
-      setSubmitState({ status: "success", message: result.message });
+      setSubmitState({
+        status: "success",
+        message: result.message || "Thank you. Your enquiry has been received.",
+      });
       onSuccess?.();
     } catch (error) {
       setSubmitState({
@@ -82,6 +101,7 @@ function ContactForm({ idPrefix = "contact", compact = false, onSuccess }) {
           id={`${idPrefix}-message`}
           name="message"
           required
+          minLength={3}
           placeholder="Tell us about the spaces, atmosphere and experience you would like to create."
         />
       </div>

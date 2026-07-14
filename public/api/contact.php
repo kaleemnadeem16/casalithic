@@ -8,18 +8,84 @@ header('X-Content-Type-Options: nosniff');
 const MAX_BODY_BYTES = 20000;
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW = 900;
+const CONTACT_LOG_FILE = __DIR__ . '/logs/contact-errors.jsonl';
+const CONTACT_PHP_ERROR_LOG = __DIR__ . '/logs/php-errors.log';
 const RECIPIENTS = [
     'techtidekaleem@gmail.com',
     'sales@casalithic.com',
     'info@casalithic.com',
 ];
 
-function respond(int $status, string $message): void
+$logDirectory = dirname(CONTACT_LOG_FILE);
+if (!is_dir($logDirectory)) {
+    @mkdir($logDirectory, 0750, true);
+}
+@ini_set('display_errors', '0');
+@ini_set('log_errors', '1');
+@ini_set('error_log', CONTACT_PHP_ERROR_LOG);
+
+function request_id(): string
 {
+    if (!empty($GLOBALS['contact_request_id'])) {
+        return (string) $GLOBALS['contact_request_id'];
+    }
+
+    try {
+        $id = bin2hex(random_bytes(8));
+    } catch (Throwable $error) {
+        $id = str_replace('.', '', uniqid('contact-', true));
+    }
+
+    $GLOBALS['contact_request_id'] = $id;
+    return $id;
+}
+
+function write_contact_log(string $event, int $status, string $code, array $extra = []): void
+{
+    $origin = (string) ($_SERVER['HTTP_ORIGIN'] ?? '');
+    $entry = array_merge([
+        'timestamp' => gmdate('c'),
+        'event' => $event,
+        'status' => $status,
+        'code' => $code,
+        'requestId' => request_id(),
+        'method' => (string) ($_SERVER['REQUEST_METHOD'] ?? ''),
+        'contentType' => (string) ($_SERVER['CONTENT_TYPE'] ?? ''),
+        'contentLength' => (int) ($_SERVER['CONTENT_LENGTH'] ?? 0),
+        'originHost' => (string) (parse_url($origin, PHP_URL_HOST) ?: ''),
+        'serverHost' => strtolower(explode(':', (string) ($_SERVER['HTTP_HOST'] ?? ''))[0]),
+        'ipHash' => substr(hash('sha256', client_ip()), 0, 16),
+    ], $GLOBALS['contact_log_context'] ?? [], $extra);
+
+    $directory = dirname(CONTACT_LOG_FILE);
+    if (!is_dir($directory) && !@mkdir($directory, 0750, true) && !is_dir($directory)) {
+        error_log('Casa Lithic contact log directory could not be created. Request ID: ' . request_id());
+        return;
+    }
+
+    $encoded = json_encode($entry, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    if (!is_string($encoded) || @file_put_contents(CONTACT_LOG_FILE, $encoded . PHP_EOL, FILE_APPEND | LOCK_EX) === false) {
+        error_log('Casa Lithic contact log could not be written. Request ID: ' . request_id());
+    }
+}
+
+function respond(int $status, string $message, string $code = ''): void
+{
+    $resolvedCode = $code !== '' ? $code : ($status >= 400 ? 'request_rejected' : 'request_complete');
+    if ($status >= 400) {
+        write_contact_log('error', $status, $resolvedCode, ['message' => $message]);
+    }
+
     http_response_code($status);
-    echo json_encode(['message' => $message], JSON_UNESCAPED_SLASHES);
+    echo json_encode([
+        'message' => $message,
+        'code' => $resolvedCode,
+        'requestId' => request_id(),
+    ], JSON_UNESCAPED_SLASHES);
     exit;
 }
+
+header('X-Contact-Request-ID: ' . request_id());
 
 function field(array $payload, string $key, int $maximum): string
 {
@@ -89,12 +155,7 @@ function rate_limit_exceeded(): bool
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     header('Allow: POST');
-    respond(405, 'Method not allowed.');
-}
-
-$contentType = (string) ($_SERVER['CONTENT_TYPE'] ?? '');
-if (stripos($contentType, 'application/json') === false) {
-    respond(415, 'Content type must be application/json.');
+    respond(405, 'Method not allowed.', 'method_not_allowed');
 }
 
 $origin = (string) ($_SERVER['HTTP_ORIGIN'] ?? '');
@@ -102,28 +163,38 @@ if ($origin !== '') {
     $originHost = strtolower((string) parse_url($origin, PHP_URL_HOST));
     $serverHost = strtolower(explode(':', (string) ($_SERVER['HTTP_HOST'] ?? ''))[0]);
     if ($originHost === '' || $serverHost === '' || $originHost !== $serverHost) {
-        respond(403, 'Cross-site submissions are not allowed.');
+        respond(403, 'Cross-site submissions are not allowed.', 'origin_rejected');
     }
 }
 
 $declaredLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
 if ($declaredLength > MAX_BODY_BYTES) {
-    respond(413, 'Request body is too large.');
+    respond(413, 'Request body is too large.', 'body_too_large');
 }
 
-$rawBody = file_get_contents('php://input');
-if (!is_string($rawBody) || strlen($rawBody) > MAX_BODY_BYTES) {
-    respond(413, 'Request body is too large.');
-}
+$contentType = strtolower(trim(explode(';', (string) ($_SERVER['CONTENT_TYPE'] ?? ''))[0]));
+$payload = [];
 
-$payload = json_decode($rawBody, true);
-if (!is_array($payload)) {
-    respond(400, 'Invalid JSON body.');
+if ($contentType === 'application/json') {
+    $rawBody = file_get_contents('php://input');
+    if (!is_string($rawBody) || strlen($rawBody) > MAX_BODY_BYTES) {
+        respond(413, 'Request body is too large.', 'body_too_large');
+    }
+
+    $decoded = json_decode($rawBody, true);
+    if (!is_array($decoded) || json_last_error() !== JSON_ERROR_NONE) {
+        respond(400, 'The server could not read the form submission. Please refresh the page and try again.', 'invalid_json');
+    }
+    $payload = $decoded;
+} elseif ($contentType === 'application/x-www-form-urlencoded' || $contentType === 'multipart/form-data' || !empty($_POST)) {
+    $payload = $_POST;
+} else {
+    respond(415, 'Unsupported form submission format.', 'unsupported_content_type');
 }
 
 // Honeypot: silently accept automated submissions without sending an email.
 if (field($payload, 'website', 200) !== '') {
-    respond(200, 'Thank you. Your enquiry has been received.');
+    respond(200, 'Thank you. Your enquiry has been received.', 'accepted');
 }
 
 $name = field($payload, 'name', 120);
@@ -133,24 +204,39 @@ $projectType = preg_replace('/[\r\n]+/', ' ', field($payload, 'projectType', 120
 $collection = field($payload, 'collection', 160);
 $message = field($payload, 'message', 4000);
 
+$GLOBALS['contact_log_context'] = [
+    'payloadKeys' => array_values(array_intersect(
+        ['name', 'email', 'location', 'projectType', 'collection', 'message', 'website'],
+        array_keys($payload)
+    )),
+    'fieldLengths' => [
+        'name' => strlen($name),
+        'email' => strlen($email),
+        'location' => strlen($location),
+        'projectType' => strlen($projectType),
+        'collection' => strlen($collection),
+        'message' => strlen($message),
+    ],
+];
+
 if (strlen($name) < 2) {
-    respond(400, 'Please provide your name.');
+    respond(400, 'Please provide your name.', 'invalid_name');
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(400, 'Please provide a valid email address.');
+    respond(400, 'Please provide a valid email address.', 'invalid_email');
 }
 
 if ($projectType === '') {
-    respond(400, 'Please select a project type.');
+    respond(400, 'Please select a project type.', 'missing_project_type');
 }
 
-if (strlen($message) < 10) {
-    respond(400, 'Please tell us a little more about your project.');
+if (strlen($message) < 3) {
+    respond(400, 'Please tell us a little more about your project.', 'message_too_short');
 }
 
 if (rate_limit_exceeded()) {
-    respond(429, 'Too many enquiries. Please try again a little later.');
+    respond(429, 'Too many enquiries. Please try again a little later.', 'rate_limited');
 }
 
 $safe = static function (string $value): string {
@@ -189,7 +275,10 @@ $sent = mail(
 
 if (!$sent) {
     error_log('Casa Lithic contact form: PHP mail() returned false.');
-    respond(500, 'We could not send your enquiry right now. Please try again or email us directly.');
+    respond(500, 'We could not send your enquiry right now. Please try again or email us directly.', 'mail_failed');
 }
 
-respond(200, 'Thank you. Your enquiry has been received.');
+write_contact_log('mail', 200, 'mail_accepted', [
+    'recipientCount' => count(RECIPIENTS),
+]);
+respond(200, 'Thank you. Your enquiry has been received.', 'sent');
