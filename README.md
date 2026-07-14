@@ -29,25 +29,33 @@ Create a production build:
 npm run build
 ```
 
-Serve the production build and contact API:
+Build for PHP shared hosting:
 
 ```bash
-cp .env.example .env
-npm start
+npm run build
 ```
 
-Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `MAIL_FROM`
-in the server-side `.env` before starting production. Do not use `VITE_` prefixes
-for mail credentials, because Vite-prefixed variables are exposed to the browser.
+Upload the complete contents of `dist/` to the hosting account's `public_html`
+directory. The build includes `api/contact.php` and `.htaccess`; PHP must have
+the standard `mail()` function enabled by the host.
 
-Contact submissions are handled by `POST /api/contact` and delivered server-side to:
+Contact submissions are handled by `POST /api/contact.php` and delivered server-side to:
 
 - `techtidekaleem@gmail.com`
 - `sales@casalithic.com`
 - `info@casalithic.com`
 
-The API validates and limits request bodies, includes a honeypot and basic IP rate
-limiting, and never sends SMTP credentials or the recipient configuration to the client.
+The PHP API validates and limits request bodies, includes a honeypot, same-origin
+checks and IP rate limiting, and keeps recipient handling outside the React bundle.
+It sends from `sales@casalithic.com` by default. If the hosting mail setup requires
+another domain mailbox, set the `CONTACT_FROM_EMAIL` environment variable in the
+hosting control panel.
+
+For local PHP testing after a build:
+
+```bash
+php -S localhost:8080 -t dist
+```
 
 ## Project Structure
 
@@ -58,9 +66,10 @@ src/
   sections/
   App.jsx
   main.jsx
-server/
-  contactApi.js
-  index.js
+public/
+  .htaccess
+  api/
+    contact.php
 ```
 
 ## Notes
