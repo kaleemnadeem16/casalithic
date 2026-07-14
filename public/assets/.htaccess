@@ -1,0 +1,11 @@
+# Vite places content-hashed files in this directory. A changed file receives
+# a new URL, so these assets can safely remain cached for one year.
+<IfModule mod_headers.c>
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
+
+# Fallback for Apache hosts where expiry policy is managed by mod_expires.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 year"
+</IfModule>
