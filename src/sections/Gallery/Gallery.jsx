@@ -1,26 +1,40 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { galleryImages, gallerySets } from "../../data/siteData";
 import "./Gallery.css";
 
 const GALLERY_SLICES = Array.from({ length: 8 });
 
 function Gallery() {
+  const sectionRef = useRef(null);
   const [setIndex, setSetIndex] = useState(0);
   const [displayedSetIndex, setDisplayedSetIndex] = useState(0);
   const [activeImage, setActiveImage] = useState(null);
+  const [isNearViewport, setIsNearViewport] = useState(false);
   const visibleImages = gallerySets[setIndex];
   const displayedImages = gallerySets[displayedSetIndex];
   const isChangingSet = setIndex !== displayedSetIndex;
 
   useEffect(() => {
-    if (activeImage !== null) return undefined;
+    const section = sectionRef.current;
+    if (!section) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsNearViewport(entry.isIntersecting),
+      { rootMargin: "300px 0px" }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (activeImage !== null || !isNearViewport) return undefined;
 
     const timer = window.setInterval(() => {
       setSetIndex((current) => (current + 1) % gallerySets.length);
     }, 6500);
 
     return () => window.clearInterval(timer);
-  }, [activeImage]);
+  }, [activeImage, isNearViewport]);
 
   useEffect(() => {
     if (!isChangingSet) return undefined;
@@ -69,7 +83,7 @@ function Gallery() {
   };
 
   return (
-    <section id="gallery" className="section gallery">
+    <section ref={sectionRef} id="gallery" className="section gallery">
       <div className="section-head" data-reveal-block>
         <span className="eyebrow dark">The Casa Lithic® lifestyle</span>
         <h2>Spaces that make every day feel extraordinary.</h2>
@@ -93,6 +107,8 @@ function Gallery() {
               className="gallery-tile-image"
               src={displayedImages[index].image}
               alt={isChangingSet ? "" : item.title}
+              loading="lazy"
+              decoding="async"
             />
             {isChangingSet && (
               <span
@@ -109,6 +125,8 @@ function Gallery() {
                     <img
                       src={item.image}
                       alt=""
+                      loading="lazy"
+                      decoding="async"
                       style={{ left: `${sliceIndex * -100}%` }}
                     />
                   </span>

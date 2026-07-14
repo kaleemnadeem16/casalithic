@@ -21,7 +21,7 @@ function Direction() {
         <div className="direction-cards">
           {directionItems.map((item) => (
             <article className="direction-card" data-reveal-block key={item.title}>
-              <img src={item.image} alt={item.title} />
+              <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
               <div className="direction-card-copy">
                 <span>{item.number}</span>
                 <h3>{item.title}</h3>

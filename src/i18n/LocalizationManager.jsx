@@ -5,13 +5,27 @@ import { getSeoPage } from "./seoData";
 
 const TRANSLATED_ATTRIBUTES = ["aria-label", "placeholder", "title"];
 const SKIPPED_PARENTS = new Set(["SCRIPT", "STYLE", "NOSCRIPT"]);
+const TRANSLATED_TEXT_VALUES = new WeakMap();
 const SORTED_PHRASE_TRANSLATIONS = [...italianPhraseTranslations].sort(
   ([first], [second]) => second.length - first.length
 );
+const ITALIAN_VALUES = new Set([
+  ...Object.values(italianTranslations),
+  ...italianPhraseTranslations.map(([, italian]) => italian),
+]);
+
+function replaceWholePhrase(value, english, italian) {
+  const escaped = english.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const startsWithWord = /^[A-Za-z0-9_]/.test(english);
+  const endsWithWord = /[A-Za-z0-9_]$/.test(english);
+  const expression = `${startsWithWord ? "\\b" : ""}${escaped}${endsWithWord ? "\\b" : ""}`;
+  return value.replace(new RegExp(expression, "g"), italian);
+}
 
 function translateValue(value) {
   const normalized = value.replace(/\s+/g, " ").trim();
   if (italianTranslations[normalized]) return italianTranslations[normalized];
+  if (ITALIAN_VALUES.has(normalized)) return value;
 
   const exploreCollection = normalized.match(/^Explore the (.+) collection$/);
   if (exploreCollection) {
@@ -40,18 +54,23 @@ function translateValue(value) {
   if (normalized.length > 90) return value;
 
   const translated = SORTED_PHRASE_TRANSLATIONS.reduce(
-    (result, [english, italian]) => result.replaceAll(english, italian),
+    (result, [english, italian]) => replaceWholePhrase(result, english, italian),
     normalized
   );
   return translated === normalized ? value : translated;
 }
 
 function translateTextNode(node) {
-  if (!node.nodeValue?.trim() || SKIPPED_PARENTS.has(node.parentElement?.tagName)) return;
-  const leading = node.nodeValue.match(/^\s*/)?.[0] || "";
-  const trailing = node.nodeValue.match(/\s*$/)?.[0] || "";
-  const translated = translateValue(node.nodeValue);
-  if (translated !== node.nodeValue) node.nodeValue = `${leading}${translated.trim()}${trailing}`;
+  const current = node.nodeValue;
+  if (!current?.trim() || SKIPPED_PARENTS.has(node.parentElement?.tagName)) return;
+  if (TRANSLATED_TEXT_VALUES.get(node) === current) return;
+
+  const leading = current.match(/^\s*/)?.[0] || "";
+  const trailing = current.match(/\s*$/)?.[0] || "";
+  const translated = translateValue(current);
+  const next = translated !== current ? `${leading}${translated.trim()}${trailing}` : current;
+  TRANSLATED_TEXT_VALUES.set(node, next);
+  if (next !== current) node.nodeValue = next;
 }
 
 function translateElement(element) {

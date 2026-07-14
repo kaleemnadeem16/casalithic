@@ -1,17 +1,81 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { heroContent, heroSlides } from "../../data/siteData";
 import "./Hero.css";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [readySlides, setReadySlides] = useState(() => new Set([0]));
+  const [pendingSlide, setPendingSlide] = useState(null);
+  const readySlidesRef = useRef(new Set([0]));
+  const preloadPromisesRef = useRef(new Map());
+  const selectionRequestRef = useRef(0);
+
+  const preloadSlide = useCallback((index) => {
+    if (readySlidesRef.current.has(index)) return Promise.resolve(true);
+    if (preloadPromisesRef.current.has(index)) {
+      return preloadPromisesRef.current.get(index);
+    }
+
+    const promise = new Promise((resolve) => {
+      const image = new Image();
+      let settled = false;
+      const finish = (isReady) => {
+        if (settled) return;
+        settled = true;
+        preloadPromisesRef.current.delete(index);
+        if (isReady) {
+          readySlidesRef.current.add(index);
+          setReadySlides(new Set(readySlidesRef.current));
+        }
+        resolve(isReady);
+      };
+
+      image.decoding = "async";
+      image.fetchPriority = "low";
+      image.onload = () => {
+        if (typeof image.decode !== "function") {
+          finish(true);
+          return;
+        }
+        image.decode().catch(() => undefined).then(() => finish(true));
+      };
+      image.onerror = () => finish(false);
+      image.src = heroSlides[index];
+      if (image.complete && image.naturalWidth > 0) image.onload();
+    });
+
+    preloadPromisesRef.current.set(index, promise);
+    return promise;
+  }, []);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCurrentSlide((previous) => (previous + 1) % heroSlides.length);
-    }, 4200);
+    if (pendingSlide !== null) return undefined;
 
-    return () => window.clearInterval(timer);
-  }, []);
+    let cancelled = false;
+    let timer;
+    const nextSlide = (currentSlide + 1) % heroSlides.length;
+
+    preloadSlide(nextSlide).then((isReady) => {
+      if (cancelled || !isReady) return;
+      timer = window.setTimeout(() => setCurrentSlide(nextSlide), 4200);
+    });
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [currentSlide, pendingSlide, preloadSlide]);
+
+  const selectSlide = (index) => {
+    const request = selectionRequestRef.current + 1;
+    selectionRequestRef.current = request;
+    setPendingSlide(index);
+    preloadSlide(index).then((isReady) => {
+      if (selectionRequestRef.current !== request) return;
+      if (isReady) setCurrentSlide(index);
+      setPendingSlide(null);
+    });
+  };
 
   return (
     <section id="home" className="hero">
@@ -20,7 +84,7 @@ function Hero() {
           <div
             key={slide}
             className={`hero-slide ${index === currentSlide ? "is-active" : ""}`}
-            style={{ backgroundImage: `url(${slide})` }}
+            style={readySlides.has(index) ? { backgroundImage: `url(${slide})` } : undefined}
           />
         ))}
         <div className="hero-overlay" />
@@ -32,7 +96,7 @@ function Hero() {
             <button
               key={slide}
               className={index === currentSlide ? "is-active" : ""}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => selectSlide(index)}
               type="button"
               aria-label={`Show slide ${index + 1}`}
             />
