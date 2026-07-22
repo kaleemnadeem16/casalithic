@@ -11,6 +11,7 @@ const routes = [
   "/collections",
   "/gallery",
   "/contact",
+  "/worldwide-presence",
   "/collections/wardrobes",
   "/collections/kitchen",
   "/collections/vanities-wall-units",

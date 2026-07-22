@@ -16,6 +16,7 @@ const routeLoaders = {
   "/collections": () => import("./pages/CollectionsPage/CollectionsPage"),
   "/gallery": () => import("./pages/GalleryPage/GalleryPage"),
   "/contact": () => import("./pages/ContactPage/ContactPage"),
+  "/worldwide-presence": () => import("./pages/WorldwidePresence/WorldwidePresencePage"),
   "/collections/wardrobes": () => import("./pages/Wardrobes/WardrobesPage"),
   "/collections/kitchen": () => import("./pages/Kitchen/KitchenPage"),
   "/collections/vanities-wall-units": () => import("./pages/VanitiesWallUnits/VanitiesWallUnitsPage"),
@@ -50,6 +51,7 @@ const AboutPage = lazyRoute("/about");
 const CollectionsPage = lazyRoute("/collections");
 const GalleryPage = lazyRoute("/gallery");
 const ContactPage = lazyRoute("/contact");
+const WorldwidePresencePage = lazyRoute("/worldwide-presence");
 const WardrobesPage = lazyRoute("/collections/wardrobes");
 const KitchenPage = lazyRoute("/collections/kitchen");
 const VanitiesWallUnitsPage = lazyRoute("/collections/vanities-wall-units");
@@ -87,6 +89,7 @@ function App() {
   const isGalleryPage = currentPath === "/gallery";
   const isContactPage = currentPath === "/contact";
   const isCollectionsPage = currentPath === "/collections";
+  const isWorldwidePresencePage = currentPath === "/worldwide-presence";
 
   useEffect(() => {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -304,6 +307,10 @@ function App() {
 
   if (isCollectionsPage) {
     return <LazyRoute component={CollectionsPage} />;
+  }
+
+  if (isWorldwidePresencePage) {
+    return <LazyRoute component={WorldwidePresencePage} />;
   }
 
   return (

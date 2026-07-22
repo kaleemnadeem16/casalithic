@@ -355,6 +355,30 @@ body.mobile-menu-open {
   text-align: center;
 }
 
+@media (max-width: 1180px) and (min-width: 781px) {
+  .site-header-inner {
+    gap: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .header-nav {
+    gap: 15px;
+  }
+
+  .header-nav a {
+    font-size: 0.68rem;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .header-cta {
+    display: none;
+  }
+}
+
 @media (max-width: 780px) {
   .site-header {
     top: 10px;

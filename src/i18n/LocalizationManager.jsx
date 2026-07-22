@@ -126,7 +126,7 @@ function setSearchMetadata(language) {
   setMeta("property", "og:description", page.description);
   setMeta("property", "og:url", currentUrl);
   setMeta("property", "og:image", imageUrl);
-  setMeta("property", "og:image:type", "image/webp");
+  setMeta("property", "og:image:type", page.image.endsWith(".png") ? "image/png" : "image/webp");
   setMeta("property", "og:image:alt", page.name);
   setMeta("property", "og:locale", language === "it" ? "it_IT" : "en_US");
   setMeta("property", "og:locale:alternate", language === "it" ? "en_US" : "it_IT");

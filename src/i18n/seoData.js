@@ -82,6 +82,20 @@ const pages = {
       name: "Contatti",
     },
   },
+  "/worldwide-presence": {
+    type: "WebPage",
+    image: "/og-worldwide-presence.png",
+    en: {
+      title: "Worldwide Presence | Casa Lithic®",
+      description: "Discover Casa Lithic's international presence across 23 markets in Europe, Asia, the Middle East, Oceania, North America and South America.",
+      name: "Worldwide Presence",
+    },
+    it: {
+      title: "Presenza nel mondo | Casa Lithic®",
+      description: "Scopri la presenza internazionale di Casa Lithic in 23 mercati tra Europa, Asia, Medio Oriente, Oceania, Nord America e Sud America.",
+      name: "Presenza nel mondo",
+    },
+  },
   "/collections/wardrobes": {
     type: "CollectionPage",
     image: wardrobeImage,

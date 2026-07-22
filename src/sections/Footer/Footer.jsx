@@ -24,6 +24,7 @@ function Footer() {
           <a href={localizePath("/collections", language)}>Collections</a>
           <a href={localizePath("/contact", language)}>Contact</a>
           <a href={localizePath("/gallery", language)}>Gallery</a>
+          <a href={localizePath("/worldwide-presence", language)}>Worldwide Presence</a>
         </nav>
       </div>
       <div className="footer-bottom">

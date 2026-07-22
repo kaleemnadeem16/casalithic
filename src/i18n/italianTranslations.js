@@ -4,6 +4,7 @@ export const italianTranslations = {
   "About": "Chi siamo",
   "Collections": "Collezioni",
   "Gallery": "Galleria",
+  "Worldwide Presence": "Presenza nel mondo",
   "Contact": "Contatti",
   "Enter the World": "Entra nel mondo",
   "Primary navigation": "Navigazione principale",

@@ -147,6 +147,7 @@ function Header() {
         )}
       </div>
       <a href={localizePath("/gallery", language)} onClick={() => setIsMenuOpen(false)}>Gallery</a>
+      <a href={localizePath("/worldwide-presence", language)} onClick={() => setIsMenuOpen(false)}>Worldwide Presence</a>
       <a href={localizePath("/contact", language)} onClick={() => setIsMenuOpen(false)}>Contact</a>
     </>
   );
