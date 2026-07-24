@@ -30,9 +30,9 @@ const content = {
     approachTitle: "Designed in Italy. Delivered with care.",
     approachBody: "Distance should never dilute a design idea. Our approach creates clarity across people, materials and timelines, helping every Casa Lithic® environment arrive with its original character intact.",
     approachItems: [
-      { number: "01", title: "Local understanding", text: "Every project begins with its architecture, climate, culture and the way our client intends to live." },
-      { number: "02", title: "One point of coordination", text: "We align clients, architects and project partners around a clear design and delivery process." },
-      { number: "03", title: "Consistent execution", text: "Materials, finishes and installation details are reviewed to protect the same standard in every market." },
+      { title: "Local understanding", text: "Every project begins with its architecture, climate, culture and the way our client intends to live." },
+      { title: "One point of coordination", text: "We align clients, architects and project partners around a clear design and delivery process." },
+      { title: "Consistent execution", text: "Materials, finishes and installation details are reviewed to protect the same standard in every market." },
     ],
     ctaEyebrow: "Your project, wherever it begins",
     ctaTitle: "Bring the Casa Lithic® world to your destination.",
@@ -65,9 +65,9 @@ const content = {
     approachTitle: "Progettato in Italia. Consegnato con cura.",
     approachBody: "La distanza non deve mai indebolire un'idea progettuale. Il nostro approccio crea chiarezza tra persone, materiali e tempistiche, affinché ogni ambiente Casa Lithic® conservi intatto il proprio carattere originario.",
     approachItems: [
-      { number: "01", title: "Comprensione del luogo", text: "Ogni progetto nasce dall'architettura, dal clima, dalla cultura e dal modo in cui il cliente desidera vivere." },
-      { number: "02", title: "Un unico coordinamento", text: "Allineiamo clienti, architetti e partner di progetto attraverso un processo chiaro, dalla progettazione alla consegna." },
-      { number: "03", title: "Esecuzione coerente", text: "Materiali, finiture e dettagli di installazione sono verificati per garantire lo stesso standard in ogni mercato." },
+      { title: "Comprensione del luogo", text: "Ogni progetto nasce dall'architettura, dal clima, dalla cultura e dal modo in cui il cliente desidera vivere." },
+      { title: "Un unico coordinamento", text: "Allineiamo clienti, architetti e partner di progetto attraverso un processo chiaro, dalla progettazione alla consegna." },
+      { title: "Esecuzione coerente", text: "Materiali, finiture e dettagli di installazione sono verificati per garantire lo stesso standard in ogni mercato." },
     ],
     ctaEyebrow: "Il tuo progetto, ovunque inizi",
     ctaTitle: "Porta il mondo Casa Lithic® nella tua destinazione.",
@@ -144,8 +144,7 @@ function WorldwidePresencePage() {
           </div>
           <div className="presence-shell presence-approach-grid">
             {copy.approachItems.map((item) => (
-              <article key={item.number} data-reveal-block>
-                <span>{item.number}</span>
+              <article key={item.title} data-reveal-block>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>

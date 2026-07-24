@@ -13,23 +13,20 @@ import "./WardrobesPage.css";
 
 const wardrobeFeatures = [
   {
-    number: "01",
     title: "A commanding presence",
-    text: "Full-height timber compositions become part of the architecture, giving the room a quiet authority and an unmistakable sense of arrival.",
+    text: "Full-height timber compositions become part of the architecture, giving the room a refined authority and an unmistakable sense of arrival.",
   },
   {
-    number: "02",
     title: "Exclusively yours",
     text: "Hanging, drawers, shoe storage and private compartments are planned around your wardrobe, so every daily ritual feels naturally considered.",
   },
   {
-    number: "03",
     title: "Timber, brought to life",
     text: "Precisely placed illumination draws out the depth, grain and warmth of the wood while remaining discreet within shelves and rails.",
   },
 ];
 
-const finishNotes = ["Selected natural timbers", "Hand-matched grain", "Deep stained finishes", "Satin & open-pore textures"];
+const finishNotes = ["Selected Wood Finishes", "Hand-matched grain", "Deep stained finishes", "Satin & open-pore textures"];
 
 const wardrobeGallery = [
   {
@@ -45,7 +42,7 @@ const wardrobeGallery = [
   {
     image: gallery06,
     title: "Pure panel composition",
-    material: "Painted timber · Quiet geometry",
+    material: "Painted timber · Refined geometry",
   },
   {
     image: gallery07,
@@ -84,7 +81,7 @@ function WardrobesPage() {
             <h1 id="wardrobe-title">A private world, shaped around you.</h1>
             <p>
               Bespoke timber wardrobes that surround every ritual with rare
-              comfort, quiet confidence and a sense of true distinction.
+              comfort, understated confidence and a sense of true distinction.
             </p>
             <a className="button button-solid" href="#wardrobe-inquiry">Create your wardrobe</a>
           </div>
@@ -115,8 +112,8 @@ function WardrobesPage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Available timber finish families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -150,8 +147,7 @@ function WardrobesPage() {
           </div>
           <div className="wardrobe-feature-grid">
             {wardrobeFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -166,7 +162,7 @@ function WardrobesPage() {
               <h2 id="wardrobe-gallery-title">Wood, composed in many forms.</h2>
             </div>
             <p>
-              From complete dressing rooms to quiet built-in compositions,
+              From complete dressing rooms to discreet built-in compositions,
               each wardrobe is shaped by its architecture and the life within it.
             </p>
           </div>

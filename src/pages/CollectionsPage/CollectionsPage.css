@@ -115,18 +115,8 @@
 }
 
 .collections-page-principles article {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
   padding: 24px 0;
   border-bottom: 1px solid var(--line-strong);
-}
-
-.collections-page-principles article > span {
-  padding-top: 4px;
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 700;
 }
 
 .collections-page-principles h3 {
@@ -230,8 +220,6 @@
   }
 
   .collections-page-principles article {
-    grid-template-columns: 36px 1fr;
-    gap: 12px;
     padding: 20px 0;
   }
 

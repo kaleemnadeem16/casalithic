@@ -10,22 +10,18 @@ import "../EditorialPages.css";
 
 const values = [
   {
-    number: "01",
     title: "Personal by nature",
     text: "Every decision begins with how you want to live, so the finished home carries your character rather than a prescribed style.",
   },
   {
-    number: "02",
     title: "Quietly exceptional",
     text: "Proportion, material and detail create an atmosphere of distinction that is deeply felt without ever needing to announce itself.",
   },
   {
-    number: "03",
     title: "Complete in vision",
     text: "Furniture, cabinetry, surfaces and private amenities are considered together, giving the entire residence one effortless language.",
   },
   {
-    number: "04",
     title: "Made to endure",
     text: "Selected materials and exacting craftsmanship give every piece a lasting presence that grows richer through years of daily life.",
   },
@@ -107,8 +103,7 @@ function AboutPage() {
             </div>
             <div className="about-values-grid">
               {values.map((value) => (
-                <article key={value.number} data-reveal-block>
-                  <span>{value.number}</span>
+                <article key={value.title} data-reveal-block>
                   <h3>{value.title}</h3>
                   <p>{value.text}</p>
                 </article>

@@ -14,23 +14,20 @@ import "./DoorsPage.css";
 
 const doorFeatures = [
   {
-    number: "01",
     title: "Architectural proportion",
     text: "From an intimate interior threshold to a monumental entrance, every door is scaled to give the architecture balance, rhythm and unmistakable presence.",
   },
   {
-    number: "02",
     title: "Timber with expression",
     text: "Grain, tone and surface detail are carefully composed, allowing the natural character of each selected timber to become part of the design.",
   },
   {
-    number: "03",
     title: "Precision in movement",
     text: "Pivot systems, concealed frames and finely resolved hardware give substantial doors a calm, assured movement and a beautifully clean architectural line.",
   },
 ];
 
-const finishNotes = ["Selected solid timbers", "Hand-matched grain", "Sculpted surface details", "Bespoke metalwork"];
+const finishNotes = ["Selected Wood Finishes", "Hand-matched grain", "Sculpted surface details", "Bespoke metalwork"];
 
 const doorGallery = [
   { image: gallery03, title: "Monumental double entrance", material: "Smoked oak · Bronze details" },
@@ -95,8 +92,8 @@ function DoorsPage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Door material and detail families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -116,7 +113,7 @@ function DoorsPage() {
             </p>
             <p>
               Concealed pivots and considered hardware allow the door to move with
-              quiet assurance, making the simple act of entering feel exceptional.
+              effortless assurance, making the simple act of entering feel exceptional.
             </p>
             <a className="wardrobe-line-link" href="#doors-details">Discover the details <Arrow /></a>
           </div>
@@ -129,8 +126,7 @@ function DoorsPage() {
           </div>
           <div className="wardrobe-feature-grid">
             {doorFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -145,7 +141,7 @@ function DoorsPage() {
               <h2 id="doors-gallery-title">A distinct character for every passage.</h2>
             </div>
             <p>
-              Monumental entrances, quiet interior doors and sculpted statement
+              Monumental entrances, refined interior doors and sculpted statement
               pieces—each design gives its setting a unique sense of ceremony.
             </p>
           </div>

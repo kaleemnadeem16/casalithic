@@ -1,9 +1,9 @@
 import "./About.css";
 
 const principles = [
-  ["01", "Presence", "Interiors with a quiet confidence that is felt before it is explained."],
-  ["02", "Comfort", "Beautiful forms made for real pleasure, ease, and everyday indulgence."],
-  ["03", "Identity", "A complete home shaped around your taste, your rituals, and your story."],
+  ["Presence", "Interiors with an understated confidence that is felt before it is explained."],
+  ["Comfort", "Thoughtful forms and considered details create lasting ease, support, and everyday comfort."],
+  ["Identity", "A complete home shaped around your taste, your rituals, and your story."],
 ];
 
 function About() {
@@ -27,7 +27,7 @@ function About() {
             <p>
               Casa Lithic® brings every part of refined living into one
               beautifully resolved vision. From the first step inside to the
-              quietest private ritual, each room is designed to feel generous,
+              most private ritual, each room is designed to feel generous,
               effortless, and deeply personal—the kind of luxury that does not
               simply impress, but changes how home makes you feel.
             </p>
@@ -38,9 +38,8 @@ function About() {
         </div>
 
         <div className="about-principles">
-          {principles.map(([number, title, text]) => (
+          {principles.map(([title, text]) => (
             <article key={title}>
-              <span>{number}</span>
               <div>
                 <h3>{title}</h3>
                 <p>{text}</p>

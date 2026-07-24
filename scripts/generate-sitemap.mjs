@@ -17,12 +17,12 @@ const routes = [
   "/collections/vanities-wall-units",
   "/collections/doors",
   "/collections/flooring",
-  "/collections/saunas-cold-plunges",
+  "/collections/sauna-cold-plunge",
   "/collections/indoor-furniture",
   "/collections/outdoor-furniture",
-  "/collections/saloon-furniture",
-  "/collections/office-furniture",
-  "/collections/cinema-furniture",
+  "/collections/salon-solution",
+  "/collections/office-solution",
+  "/collections/cinema-solution",
 ];
 
 const absoluteUrl = (route, language) => {

@@ -183,6 +183,22 @@
   border-bottom: 1px solid var(--line);
 }
 
+.wardrobe-finish-list .wardrobe-finish-bullet {
+  display: block;
+  align-self: center;
+  justify-self: start;
+  width: 10px;
+  min-width: 10px;
+  height: 10px;
+  min-height: 10px;
+  margin-left: 4px;
+  border: 0;
+  border-radius: 1px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(125, 84, 52, 0.14);
+  transform: rotate(45deg);
+}
+
 .wardrobe-finish-list p {
   margin: 0;
   color: var(--ink-soft);
@@ -296,13 +312,8 @@
   background: rgba(232, 224, 211, 0.56);
 }
 
-.wardrobe-feature-grid article > span {
-  color: var(--accent);
-  font-size: 0.67rem;
-}
-
 .wardrobe-feature-grid h3 {
-  margin-top: 110px;
+  margin-top: 72px;
   font-size: clamp(1.9rem, 2.3vw, 2.7rem);
 }
 

@@ -120,7 +120,7 @@ function Hero() {
           </div>
           <div>
             <span>The Feeling</span>
-            <strong>Quiet confidence, exceptional comfort, and beauty you can feel</strong>
+            <strong>Understated confidence, exceptional comfort, and beauty you can feel</strong>
           </div>
           <div>
             <span>The Service</span>

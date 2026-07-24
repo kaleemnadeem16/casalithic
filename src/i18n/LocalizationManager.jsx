@@ -13,6 +13,46 @@ const ITALIAN_VALUES = new Set([
   ...Object.values(italianTranslations),
   ...italianPhraseTranslations.map(([, italian]) => italian),
 ]);
+const TITLE_CASE_MINOR_WORDS = new Set([
+  "a", "an", "and", "as", "at", "but", "by", "for", "from",
+  "in", "nor", "of", "on", "or", "the", "to", "with",
+]);
+const TITLE_SELECTOR = "h1, h2, h3, h4, h5, h6, blockquote, .eyebrow";
+
+function toTitleCase(value) {
+  const words = [...value.matchAll(/[A-Za-zÀ-ÖØ-öø-ÿ]+(?:['’][A-Za-zÀ-ÖØ-öø-ÿ]+)*/g)];
+  let wordIndex = 0;
+
+  return value.replace(/[A-Za-zÀ-ÖØ-öø-ÿ]+(?:['’][A-Za-zÀ-ÖØ-öø-ÿ]+)*/g, (word, offset) => {
+    const index = wordIndex++;
+    const lowercase = word.toLocaleLowerCase("en");
+    const previousCharacter = value.slice(0, offset).trimEnd().slice(-1);
+    const beginsPhrase = index === 0 || /[.!?:]/.test(previousCharacter);
+    const endsPhrase = index === words.length - 1;
+
+    if (TITLE_CASE_MINOR_WORDS.has(lowercase) && !beginsPhrase && !endsPhrase) {
+      return lowercase;
+    }
+
+    return `${lowercase.charAt(0).toLocaleUpperCase("en")}${lowercase.slice(1)}`;
+  });
+}
+
+function titleCaseElement(element) {
+  if (!element.matches?.(TITLE_SELECTOR)) return;
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  let node = walker.nextNode();
+  while (node) {
+    if (node.nodeValue?.trim()) node.nodeValue = toTitleCase(node.nodeValue);
+    node = walker.nextNode();
+  }
+}
+
+function titleCaseTree(root) {
+  if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_NODE) return;
+  if (root.nodeType === Node.ELEMENT_NODE) titleCaseElement(root);
+  root.querySelectorAll?.(TITLE_SELECTOR).forEach(titleCaseElement);
+}
 
 function replaceWholePhrase(value, english, italian) {
   const escaped = english.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -227,7 +267,14 @@ function LocalizationManager() {
 
   useLayoutEffect(() => {
     setSearchMetadata(language);
-    if (language !== "it") return undefined;
+    if (language !== "it") {
+      titleCaseTree(document.body);
+      const headingObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => mutation.addedNodes.forEach(titleCaseTree));
+      });
+      headingObserver.observe(document.body, { childList: true, subtree: true });
+      return () => headingObserver.disconnect();
+    }
 
     translateTree(document.body);
     const observer = new MutationObserver((mutations) => {

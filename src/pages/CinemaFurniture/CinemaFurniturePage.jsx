@@ -15,27 +15,24 @@ import "./CinemaFurniturePage.css";
 
 const cinemaFeatures = [
   {
-    number: "01",
     title: "Comfort without distraction",
-    text: "Supportive profiles, generous cushioning and quiet powered movement let the body settle completely while the furniture retains its tailored form.",
+    text: "Supportive profiles, generous cushioning and smooth powered movement let the body settle completely while the furniture retains its tailored form.",
   },
   {
-    number: "02",
     title: "Sightlines, precisely resolved",
     text: "Seat height, recline angle and tier depth are considered together, giving every guest an effortless view without compromising the intimacy of the room.",
   },
   {
-    number: "03",
     title: "Everything within reach",
     text: "Walnut consoles discreetly hold controls, drinks, lighting and personal devices, keeping every convenience close and every surface beautifully composed.",
   },
 ];
 
-const finishNotes = ["Selected dark walnut", "Tailored aniline leather", "Acoustic wool textiles", "Brushed bronze details"];
+const finishNotes = ["Selected Wood Finishes", "Tailored aniline leather", "Acoustic wool textiles", "Brushed bronze details"];
 
 const cinemaGallery = [
   { image: gallery02, title: "The tiered recliner collection", material: "Leather · Walnut · Bronze" },
-  { image: gallery03, title: "The cinema lounge", material: "Textile · Timber · Honed stone" },
+  { image: gallery03, title: "The cinema lounge", material: "Textile · Timber · Smooth stone" },
   { image: gallery05, title: "The private loveseat", material: "Leather · Walnut · Integrated console" },
   { image: gallery06, title: "The rear viewing counter", material: "Walnut · Stone · Saddle leather" },
   { image: gallery08, title: "The intimate screening room", material: "Wool · Velvet · Walnut" },
@@ -62,11 +59,11 @@ function CinemaFurniturePage() {
           <img src={gallery01} alt="Bespoke leather cinema recliners in a dark walnut private screening room" />
           <div className="wardrobe-hero-shade" />
           <div className="wardrobe-hero-content" data-reveal-block>
-            <span className="eyebrow">Cinema Furniture</span>
+            <span className="eyebrow">Cinema Solution</span>
             <h1 id="cinema-furniture-title">Every screening, a private occasion.</h1>
             <p>
               Bespoke seating and cinema lounges shaped around deep comfort,
-              uninterrupted viewing and the quiet pleasure of having the finest seat at home.
+              uninterrupted viewing and the rare pleasure of having the finest seat at home.
             </p>
             <a className="button button-solid" href="#cinema-furniture-inquiry">Compose your cinema</a>
           </div>
@@ -75,7 +72,7 @@ function CinemaFurniturePage() {
             <span>Leather · Timber · Textile</span>
             <span>Designed for private viewing</span>
           </div>
-          <a className="wardrobe-scroll" href="#cinema-furniture-introduction" aria-label="Scroll to the cinema furniture collection story">
+          <a className="wardrobe-scroll" href="#cinema-furniture-introduction" aria-label="Scroll to the cinema solution collection story">
             <span /> Explore
           </a>
         </section>
@@ -96,9 +93,9 @@ function CinemaFurniturePage() {
                 that feels intimate, effortless and entirely your own.
               </p>
             </div>
-            <div className="wardrobe-finish-list" aria-label="Cinema furniture material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+            <div className="wardrobe-finish-list" aria-label="Cinema solution material families">
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -106,7 +103,7 @@ function CinemaFurniturePage() {
 
         <section className="wardrobe-craft" data-reveal-block>
           <div className="wardrobe-craft-image">
-            <img src={gallery04} alt="Tailored cognac leather cinema recliner with a quietly extending footrest" />
+            <img src={gallery04} alt="Tailored cognac leather cinema recliner with a smoothly extending footrest" />
             <span>Support, tailored to your preferred position</span>
           </div>
           <div className="wardrobe-craft-copy">
@@ -131,8 +128,7 @@ function CinemaFurniturePage() {
           </div>
           <div className="wardrobe-feature-grid">
             {cinemaFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -143,7 +139,7 @@ function CinemaFurniturePage() {
         <section className="wardrobe-gallery" aria-labelledby="cinema-furniture-gallery-title">
           <div className="wardrobe-gallery-head" data-reveal-block>
             <div>
-              <span className="eyebrow dark">The cinema furniture gallery</span>
+              <span className="eyebrow dark">The cinema solution gallery</span>
               <h2 id="cinema-furniture-gallery-title">A beautiful way to lose yourself in the story.</h2>
             </div>
             <p>

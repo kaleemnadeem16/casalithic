@@ -62,12 +62,6 @@
   padding: 28px;
 }
 
-.direction-card-copy > span {
-  color: rgba(255, 255, 255, 0.52);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
 .direction-card-copy p {
   margin-top: 14px;
   color: rgba(255, 255, 255, 0.74);

@@ -7,7 +7,7 @@ import flooringImage from "../assets/flooring/gallery/flooring-gallery-09.webp";
 import wellnessImage from "../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.webp";
 import indoorImage from "../assets/indoor-furniture/gallery/indoor-furniture-gallery-01.webp";
 import outdoorImage from "../assets/outdoor-furniture/gallery/outdoor-furniture-gallery-09.webp";
-import saloonImage from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp";
+import salonImage from "../assets/salon-furniture/gallery/salon-furniture-gallery-09.webp";
 import officeImage from "../assets/office-furniture/gallery/office-furniture-gallery-09.webp";
 import cinemaImage from "../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.webp";
 
@@ -166,18 +166,18 @@ const pages = {
       name: "Pavimenti",
     },
   },
-  "/collections/saunas-cold-plunges": {
+  "/collections/sauna-cold-plunge": {
     type: "CollectionPage",
     image: wellnessImage,
     en: {
-      title: "Private Saunas & Cold Plunges | Casa Lithic®",
-      description: "Private wellness suites combining timber saunas and cold plunges in one restorative architectural environment designed for daily ritual.",
-      name: "Saunas & Cold Plunges",
+      title: "Private Sauna & Cold Plunge | Casa Lithic®",
+      description: "A private wellness suite combining a timber sauna and cold plunge in one restorative architectural environment designed for daily ritual.",
+      name: "Sauna & Cold Plunge",
     },
     it: {
-      title: "Saune private e vasche fredde | Casa Lithic®",
-      description: "Spazi benessere privati che riuniscono sauna in legno e vasca fredda in un ambiente architettonico rigenerante per il rituale quotidiano.",
-      name: "Saune e vasche fredde",
+      title: "Sauna privata e vasca fredda | Casa Lithic®",
+      description: "Uno spazio benessere privato che riunisce una sauna in legno e una vasca fredda in un ambiente architettonico rigenerante per il rituale quotidiano.",
+      name: "Sauna e vasca fredda",
     },
   },
   "/collections/indoor-furniture": {
@@ -208,13 +208,13 @@ const pages = {
       name: "Arredi per esterni",
     },
   },
-  "/collections/saloon-furniture": {
+  "/collections/salon-solution": {
     type: "CollectionPage",
-    image: saloonImage,
+    image: salonImage,
     en: {
-      title: "Luxury Saloon Furniture | Casa Lithic®",
+      title: "Luxury Salon Solution | Casa Lithic®",
       description: "Professional reception, styling and treatment furniture that combines client comfort, specialist performance and a distinctive identity.",
-      name: "Saloon Furniture",
+      name: "Salon Solution",
     },
     it: {
       title: "Arredi di lusso per saloni | Casa Lithic®",
@@ -222,13 +222,13 @@ const pages = {
       name: "Arredi per saloni",
     },
   },
-  "/collections/office-furniture": {
+  "/collections/office-solution": {
     type: "CollectionPage",
     image: officeImage,
     en: {
-      title: "Luxury Executive Office Furniture | Casa Lithic®",
+      title: "Luxury Executive Office Solution | Casa Lithic®",
       description: "Distinguished furniture for private offices, boardrooms and workplaces, integrating ergonomic comfort, technology and refined materials.",
-      name: "Office Furniture",
+      name: "Office Solution",
     },
     it: {
       title: "Arredi direzionali di lusso per ufficio | Casa Lithic®",
@@ -236,13 +236,13 @@ const pages = {
       name: "Arredi per ufficio",
     },
   },
-  "/collections/cinema-furniture": {
+  "/collections/cinema-solution": {
     type: "CollectionPage",
     image: cinemaImage,
     en: {
-      title: "Bespoke Private Cinema Furniture | Casa Lithic®",
+      title: "Bespoke Private Cinema Solution | Casa Lithic®",
       description: "Tailored cinema recliners and lounge seating designed around sightlines, deep comfort, discreet technology and uninterrupted private viewing.",
-      name: "Cinema Furniture",
+      name: "Cinema Solution",
     },
     it: {
       title: "Arredi su misura per cinema privato | Casa Lithic®",

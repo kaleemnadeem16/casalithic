@@ -14,29 +14,26 @@ import "./IndoorFurniturePage.css";
 
 const furnitureFeatures = [
   {
-    number: "01",
     title: "Comfort with presence",
     text: "Generous proportions, supportive forms and tactile upholstery create furniture that feels immediately inviting while holding a confident place within the room.",
   },
   {
-    number: "02",
     title: "Materials in conversation",
     text: "Fine timber, natural stone, woven textiles and restrained metal details are balanced so every piece contributes to one harmonious interior language.",
   },
   {
-    number: "03",
     title: "Composed for the room",
     text: "Seating, tables, storage and bedroom pieces are considered together, giving each space an effortless flow and a character that feels entirely personal.",
   },
 ];
 
-const finishNotes = ["Tactile woven upholstery", "Selected natural timber", "Honed stone surfaces", "Refined metal details"];
+const finishNotes = ["Selected Wood Finishes", "Tactile woven upholstery", "Smooth stone surfaces", "Refined metal details"];
 
 const furnitureGallery = [
   { image: gallery02, title: "Dining, beautifully gathered", material: "Stone · Timber · Upholstery" },
   { image: gallery03, title: "Expressive modular salon", material: "Textured fabric · Walnut" },
   { image: gallery04, title: "Sculptural fireside seating", material: "Bouclé · Bronze · Stone" },
-  { image: gallery07, title: "Coastal living composition", material: "Modular seating · Honed stone" },
+  { image: gallery07, title: "Coastal living composition", material: "Modular seating · Smooth stone" },
   { image: gallery08, title: "Tailored bedroom collection", material: "Upholstery · Timber · Metal" },
 ];
 
@@ -65,7 +62,7 @@ function IndoorFurniturePage() {
             <h1 id="indoor-furniture-title">Comfort, composed with character.</h1>
             <p>
               Distinctive furniture for living, dining and private spaces—created
-              to surround everyday life with beauty, ease and quiet confidence.
+              to surround everyday life with beauty, ease and understated confidence.
             </p>
             <a className="button button-solid" href="#indoor-furniture-inquiry">Compose your interior</a>
           </div>
@@ -96,8 +93,8 @@ function IndoorFurniturePage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Indoor furniture material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -130,8 +127,7 @@ function IndoorFurniturePage() {
           </div>
           <div className="wardrobe-feature-grid">
             {furnitureFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>

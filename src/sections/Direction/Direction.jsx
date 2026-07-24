@@ -11,7 +11,7 @@ function Direction() {
           <p>
             Casa Lithic® creates more than beautiful rooms. We shape an
             atmosphere of ease, pleasure, and belonging—where every detail
-            quietly reminds you that you are somewhere exceptional.
+            subtly reminds you that you are somewhere exceptional.
           </p>
           <a className="direction-link" href="#contact">
             Shape your world <span>↗</span>
@@ -23,7 +23,6 @@ function Direction() {
             <article className="direction-card" data-reveal-block key={item.title}>
               <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
               <div className="direction-card-copy">
-                <span>{item.number}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </div>

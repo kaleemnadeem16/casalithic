@@ -14,26 +14,23 @@ import "./VanitiesWallUnitsPage.css";
 
 const compositionFeatures = [
   {
-    number: "01",
     title: "Architectural fit",
-    text: "Wall-to-wall, full-height or floating, every composition is proportioned to the room so cabinetry and architecture read as one considered whole.",
+    text: "Every vanity and wall unit is thoughtfully designed to complement the architecture of your space. Whether full-height, floating, or seamlessly integrated, each composition is carefully proportioned to deliver refined storage, timeless aesthetics, and effortless functionality.",
   },
   {
-    number: "02",
     title: "Personal order",
     text: "Drawers, concealed storage and display spaces are configured around your rituals and possessions, keeping everything beautifully and intuitively placed.",
   },
   {
-    number: "03",
     title: "Materials in harmony",
     text: "Fine timber, natural stone, restrained metalwork and soft illumination are balanced to give each piece warmth, depth and a distinctive presence.",
   },
 ];
 
-const finishNotes = ["Selected timber finishes", "Honed natural stone", "Precision metal details", "Integrated illumination"];
+const finishNotes = ["Selected Wood Finishes", "Smooth natural stone", "Precision metal details", "Integrated illumination"];
 
 const compositionGallery = [
-  { image: gallery03, title: "Living room media wall", material: "Dark walnut · Honed limestone" },
+  { image: gallery03, title: "Living room media wall", material: "Dark walnut · Smooth limestone" },
   { image: gallery04, title: "Private dressing vanity", material: "Pale oak · Soft illumination" },
   { image: gallery05, title: "Dining display composition", material: "Smoked oak · Fluted display" },
   { image: gallery06, title: "Sculptural powder vanity", material: "Fluted walnut · Dark stone" },
@@ -95,8 +92,8 @@ function VanitiesWallUnitsPage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Vanity and wall unit material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -130,8 +127,7 @@ function VanitiesWallUnitsPage() {
           </div>
           <div className="wardrobe-feature-grid">
             {compositionFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -170,7 +166,7 @@ function VanitiesWallUnitsPage() {
             <p>
               Closed storage creates calm. Illuminated niches reveal the pieces you
               choose to live with. A vanity supports a private ritual. Each element
-              has purpose, and together they give the room its quiet confidence.
+              has purpose, and together they give the room its understated confidence.
             </p>
           </div>
           <div className="wardrobe-balance-image">

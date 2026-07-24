@@ -14,7 +14,7 @@ import doors01 from "../../assets/doors/gallery/doors-gallery-01.webp";
 import flooring01 from "../../assets/flooring/gallery/flooring-gallery-01.webp";
 import wellness09 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-09.webp";
 import wellness01 from "../../assets/saunas-cold-plunges/gallery/saunas-cold-plunges-gallery-01.webp";
-import saloon09 from "../../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp";
+import salon09 from "../../assets/salon-furniture/gallery/salon-furniture-gallery-09.webp";
 import office01 from "../../assets/office-furniture/gallery/office-furniture-gallery-01.webp";
 import cinema09 from "../../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.webp";
 import "../EditorialPages.css";
@@ -27,13 +27,13 @@ const portfolioItems = [
   { image: wardrobe01, title: "The private dressing suite", category: "Private Spaces", detail: "Wardrobes" },
   { image: outdoor09, title: "The mountain terrace", category: "Living", detail: "Outdoor Furniture" },
   { image: wellness09, title: "The garden wellness retreat", category: "Wellness", detail: "Sauna & Cold Plunge" },
-  { image: office01, title: "The executive study", category: "Professional", detail: "Office Furniture" },
+  { image: office01, title: "The executive study", category: "Professional", detail: "Office Solution" },
   { image: indoor03, title: "The evening lounge", category: "Living", detail: "Indoor Furniture" },
   { image: vanity01, title: "The principal vanity", category: "Private Spaces", detail: "Vanities & Wall Units" },
-  { image: cinema09, title: "The private screening room", category: "Private Spaces", detail: "Cinema Furniture" },
+  { image: cinema09, title: "The private screening room", category: "Private Spaces", detail: "Cinema Solution" },
   { image: kitchen05, title: "The social kitchen", category: "Living", detail: "Kitchen" },
   { image: doors01, title: "The monumental entrance", category: "Private Spaces", detail: "Doors" },
-  { image: saloon09, title: "The private beauty saloon", category: "Professional", detail: "Saloon Furniture" },
+  { image: salon09, title: "The private beauty salon", category: "Professional", detail: "Salon Solution" },
   { image: flooring01, title: "The herringbone residence", category: "Private Spaces", detail: "Flooring" },
   { image: wellness01, title: "The timber sanctuary", category: "Wellness", detail: "Sauna" },
   { image: outdoor03, title: "The poolside collection", category: "Living", detail: "Outdoor Furniture" },

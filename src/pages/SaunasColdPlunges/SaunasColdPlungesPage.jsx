@@ -14,30 +14,27 @@ import "./SaunasColdPlungesPage.css";
 
 const wellnessFeatures = [
   {
-    number: "01",
     title: "Restorative warmth",
     text: "Selected timber, generous benches and softly integrated illumination create a sauna experience that feels enveloping, private and beautifully calm.",
   },
   {
-    number: "02",
     title: "Invigorating contrast",
     text: "A precisely formed stainless plunge, wrapped in warm timber, introduces a clear counterpoint of temperature, material and sensation.",
   },
   {
-    number: "03",
     title: "Architectural serenity",
     text: "Sauna, plunge, lighting and surrounding finishes are composed as one complete environment, giving a personal ritual its own refined sense of place.",
   },
 ];
 
-const finishNotes = ["Selected sauna timbers", "Brushed stainless steel", "Integrated warm illumination", "Tailored spatial planning"];
+const finishNotes = ["Selected Wood Finishes", "Brushed stainless steel", "Integrated warm illumination", "Tailored spatial planning"];
 
 const wellnessGallery = [
   { image: gallery02, title: "Private timber sauna", material: "Light timber · Warm illumination" },
   { image: gallery03, title: "Tiered sauna interior", material: "Clear glass · Sculpted benches" },
   { image: gallery06, title: "Timber-clad cold plunge", material: "Stainless steel · Natural timber" },
   { image: gallery07, title: "Complete contrast suite", material: "Cold plunge · Sauna · Water" },
-  { image: gallery08, title: "Integrated wellness room", material: "Sauna and plunge · Honed stone" },
+  { image: gallery08, title: "Integrated wellness room", material: "Sauna and plunge · Smooth stone" },
 ];
 
 function Arrow() {
@@ -61,7 +58,7 @@ function SaunasColdPlungesPage() {
           <img src={gallery01} alt="Light timber sauna in a refined private wellness room" />
           <div className="wardrobe-hero-shade" />
           <div className="wardrobe-hero-content" data-reveal-block>
-            <span className="eyebrow">Saunas &amp; Cold Plunges</span>
+            <span className="eyebrow">Sauna &amp; Cold Plunge</span>
             <h1 id="wellness-title">Warmth. Cold. A ritual entirely your own.</h1>
             <p>
               Private wellness environments that bring enveloping timber warmth
@@ -74,7 +71,7 @@ function SaunasColdPlungesPage() {
             <span>Timber · Steel · Stone</span>
             <span>Designed for private ritual</span>
           </div>
-          <a className="wardrobe-scroll" href="#wellness-introduction" aria-label="Scroll to the saunas and cold plunges collection story">
+          <a className="wardrobe-scroll" href="#wellness-introduction" aria-label="Scroll to the sauna and cold plunge collection story">
             <span /> Explore
           </a>
         </section>
@@ -89,15 +86,15 @@ function SaunasColdPlungesPage() {
               <span className="eyebrow dark">Wellness, composed as architecture</span>
               <h2>A sanctuary of warmth and stillness.</h2>
               <p>
-                A Casa Lithic® wellness suite brings sauna and cold plunge into a
+                A Casa Lithic® wellness suite brings a sauna and cold plunge into a
                 single architectural language. Timber, steel, stone and light are
                 balanced to create an atmosphere that feels secluded, restorative
                 and unmistakably personal.
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Sauna and cold plunge material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -126,12 +123,11 @@ function SaunasColdPlungesPage() {
         <section className="wardrobe-details" id="wellness-details">
           <div className="wardrobe-details-head" data-reveal-block>
             <span className="eyebrow dark">Made for a life of distinction</span>
-            <h2>Two temperatures. One exceptional ritual.</h2>
+            <h2>Sauna and Plunge. A Complete Wellness Ritual.</h2>
           </div>
           <div className="wardrobe-feature-grid">
             {wellnessFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -147,7 +143,7 @@ function SaunasColdPlungesPage() {
             </div>
             <p>
               From a compact timber sauna to a complete contrast suite, every
-              environment balances sensory experience with quiet architectural beauty.
+              environment balances sensory experience with serene architectural beauty.
             </p>
           </div>
           <div className="wardrobe-gallery-grid">
@@ -166,11 +162,12 @@ function SaunasColdPlungesPage() {
         <section className="wardrobe-balance" data-reveal-block>
           <div className="wardrobe-balance-copy">
             <span className="eyebrow dark">A ritual connected to nature</span>
-            <h2>Warm. Immerse. Renew.</h2>
+            <h2>Restore. Rebalance. Renew.</h2>
             <p>
-              The glow of timber gives way to the clarity of cold water. Beyond,
-              a private garden settles the senses. Together, these moments create
-              a wellness experience with its own unhurried rhythm.
+              The warmth of timber invites relaxation, while the clarity of cold
+              water restores balance. Beyond, a private garden creates a tranquil
+              connection with nature. Together, these elements form a wellness
+              experience shaped by calm, balance, and an unhurried rhythm.
             </p>
           </div>
           <div className="wardrobe-balance-image">
@@ -198,7 +195,7 @@ function SaunasColdPlungesPage() {
             <span className="eyebrow">Begin your private consultation</span>
             <h2>Let us create a wellness ritual that belongs entirely to your home.</h2>
             <p>Share your residence and discover how warmth, cold and calm can become one private sanctuary.</p>
-            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Saunas and cold plunges collection inquiry">
+            <a className="button button-solid" href="mailto:sales@casalithic.com?subject=Sauna and cold plunge collection inquiry">
               Discuss your sanctuary <Arrow />
             </a>
           </div>

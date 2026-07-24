@@ -14,29 +14,26 @@ import "./OutdoorFurniturePage.css";
 
 const outdoorFeatures = [
   {
-    number: "01",
     title: "Comfort without compromise",
     text: "Deep cushions, generous proportions and supportive profiles bring the ease of a beautifully furnished interior into terraces, gardens and poolside settings.",
   },
   {
-    number: "02",
     title: "Materials made for the elements",
     text: "Selected timber, woven outdoor fibers, refined metalwork and performance textiles are chosen to weather gracefully while retaining their tactile appeal.",
   },
   {
-    number: "03",
     title: "Composed for the landscape",
     text: "Every seating group, lounger and dining piece is considered in relation to architecture, sunlight and view, creating an outdoor room with effortless presence.",
   },
 ];
 
-const finishNotes = ["Selected outdoor timber", "Hand-finished woven fiber", "Performance upholstery", "Weather-ready metalwork"];
+const finishNotes = ["Selected Wood Finishes", "Hand-finished woven fiber", "Performance upholstery", "Weather-ready metalwork"];
 
 const outdoorGallery = [
   { image: gallery02, title: "Mediterranean terrace salon", material: "Timber · Woven fiber · Textile" },
   { image: gallery04, title: "Sculptural desert seating", material: "Braided weave · Upholstery" },
   { image: gallery05, title: "Curved garden composition", material: "Woven frame · Performance textile" },
-  { image: gallery06, title: "Colour beneath the loggia", material: "Woven fiber · Honed stone" },
+  { image: gallery06, title: "Colour beneath the loggia", material: "Woven fiber · Smooth stone" },
   { image: gallery07, title: "Poolside dining at leisure", material: "Metal · Cord · Upholstery" },
 ];
 
@@ -96,8 +93,8 @@ function OutdoorFurniturePage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Outdoor furniture material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -117,7 +114,7 @@ function OutdoorFurniturePage() {
             </p>
             <p>
               Every joint, weave and seam is resolved for life outside, allowing
-              each piece to meet the elements with grace and retain its quiet refinement.
+              each piece to meet the elements with grace and retain its subtle refinement.
             </p>
             <a className="wardrobe-line-link" href="#outdoor-furniture-details">Discover the details <Arrow /></a>
           </div>
@@ -130,8 +127,7 @@ function OutdoorFurniturePage() {
           </div>
           <div className="wardrobe-feature-grid">
             {outdoorFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -168,7 +164,7 @@ function OutdoorFurniturePage() {
             <span className="eyebrow dark">An invitation to linger</span>
             <h2>Pause. Recline. Stay awhile.</h2>
             <p>
-              Beside the water, a pair of generous loungers turns a quiet view into
+              Beside the water, a pair of generous loungers turns a tranquil view into
               a private destination. Comfort, shade and the landscape come together,
               making the passage of time feel almost incidental.
             </p>

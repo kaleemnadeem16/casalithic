@@ -14,23 +14,20 @@ import "./KitchenPage.css";
 
 const kitchenFeatures = [
   {
-    number: "01",
     title: "Architectural presence",
     text: "Cabinetry, islands and full-height walls are composed as part of the architecture, giving the kitchen a confident and beautifully resolved identity.",
   },
   {
-    number: "02",
-    title: "Made for how you cook",
-    text: "Preparation, storage, serving and gathering are planned around your rituals, creating a natural flow from the quietest morning to the grandest evening.",
+    title: "Crafted for every way you use your kitchen",
+    text: "Preparation, storage, serving and gathering are planned around your rituals, creating a natural flow from the calmest morning to the grandest evening.",
   },
   {
-    number: "03",
     title: "Technology, made discreet",
     text: "Appliances, lighting and intelligent storage are integrated with precision, placing exceptional performance exactly where it belongs and out of sight where it does not.",
   },
 ];
 
-const finishNotes = ["Selected timber finishes", "Honed natural stone", "Precision metal details", "Integrated illumination"];
+const finishNotes = ["Selected Wood Finishes", "Smooth natural stone", "Precision metal details", "Integrated illumination"];
 
 const kitchenGallery = [
   { image: gallery01, title: "The refined classic", material: "Painted timber · Pale stone" },
@@ -95,8 +92,8 @@ function KitchenPage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Kitchen material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -116,7 +113,7 @@ function KitchenPage() {
               appliances and lighting placed exactly where it is needed.
             </p>
             <p>
-              The result is a kitchen that performs with quiet confidence and
+              The result is a kitchen that performs with assured ease and
               welcomes every occasion—from a solitary coffee to a full house.
             </p>
             <a className="wardrobe-line-link" href="#kitchen-details">Discover the details <Arrow /></a>
@@ -130,8 +127,7 @@ function KitchenPage() {
           </div>
           <div className="wardrobe-feature-grid">
             {kitchenFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>

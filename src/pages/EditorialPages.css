@@ -274,13 +274,8 @@
   border-bottom: 1px solid var(--line-strong);
 }
 
-.about-values-grid article > span {
-  color: var(--accent);
-  font-size: 0.72rem;
-}
-
 .about-values-grid h3 {
-  margin-top: 92px;
+  margin-top: 64px;
   font-size: 1.75rem;
 }
 

@@ -15,23 +15,20 @@ import "./OfficeFurniturePage.css";
 
 const officeFeatures = [
   {
-    number: "01",
     title: "Presence with purpose",
     text: "Sculptural desks, confident proportions and refined material transitions give leadership spaces an unmistakable sense of composure without excess.",
   },
   {
-    number: "02",
     title: "Comfort through the day",
     text: "Ergonomic support, tactile upholstery and precise adjustment are integrated discreetly, sustaining focus through every conversation and decision.",
   },
   {
-    number: "03",
     title: "Order built into every piece",
     text: "Storage, power and cable management disappear within beautifully resolved furniture, allowing the working environment to remain calm and effortless.",
   },
 ];
 
-const finishNotes = ["Selected dark walnut", "Hand-finished saddle leather", "Honed stone surfaces", "Brushed bronze structures"];
+const finishNotes = ["Selected Wood Finishes", "Hand-finished saddle leather", "Smooth stone surfaces", "Brushed bronze structures"];
 
 const officeGallery = [
   { image: gallery02, title: "The executive desk", material: "Walnut · Leather · Bronze" },
@@ -62,7 +59,7 @@ function OfficeFurniturePage() {
           <img src={gallery01} alt="Sculptural walnut executive desk and tailored seating in a refined private office above the city" />
           <div className="wardrobe-hero-shade" />
           <div className="wardrobe-hero-content" data-reveal-block>
-            <span className="eyebrow">Office Furniture</span>
+            <span className="eyebrow">Office Solution</span>
             <h1 id="office-furniture-title">Authority, expressed with restraint.</h1>
             <p>
               Distinguished furniture for private offices, boardrooms and executive
@@ -75,7 +72,7 @@ function OfficeFurniturePage() {
             <span>Timber · Leather · Stone</span>
             <span>Designed for purposeful work</span>
           </div>
-          <a className="wardrobe-scroll" href="#office-furniture-introduction" aria-label="Scroll to the office furniture collection story">
+          <a className="wardrobe-scroll" href="#office-furniture-introduction" aria-label="Scroll to the office solution collection story">
             <span /> Explore
           </a>
         </section>
@@ -96,9 +93,9 @@ function OfficeFurniturePage() {
                 unmistakably personal.
               </p>
             </div>
-            <div className="wardrobe-finish-list" aria-label="Office furniture material families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+            <div className="wardrobe-finish-list" aria-label="Office solution material families">
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -114,7 +111,7 @@ function OfficeFurniturePage() {
             <h2>Ergonomics, elevated to an art.</h2>
             <p>
               A precisely shaped back, supportive seat and intuitive adjustments
-              create comfort that remains quietly present through the longest working day.
+              create comfort that remains naturally present through the longest working day.
             </p>
             <p>
               Hand-finished leather, exact stitching and a refined metal structure
@@ -131,8 +128,7 @@ function OfficeFurniturePage() {
           </div>
           <div className="wardrobe-feature-grid">
             {officeFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>
@@ -143,7 +139,7 @@ function OfficeFurniturePage() {
         <section className="wardrobe-gallery" aria-labelledby="office-furniture-gallery-title">
           <div className="wardrobe-gallery-head" data-reveal-block>
             <div>
-              <span className="eyebrow dark">The office furniture gallery</span>
+              <span className="eyebrow dark">The office solution gallery</span>
               <h2 id="office-furniture-gallery-title">Composed for focus, exchange and command.</h2>
             </div>
             <p>

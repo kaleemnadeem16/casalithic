@@ -7,12 +7,12 @@ const collections = [
   "Vanities & Wall Units",
   "Doors",
   "Flooring",
-  "Saunas & Cold Plunges",
+  "Sauna & Cold Plunge",
   "Indoor Furniture",
   "Outdoor Furniture",
-  "Saloon Furniture",
-  "Office Furniture",
-  "Cinema Furniture",
+  "Salon Solution",
+  "Office Solution",
+  "Cinema Solution",
   "Several collections",
 ];
 

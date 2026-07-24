@@ -9,17 +9,14 @@ import "./CollectionsPage.css";
 
 const principles = [
   {
-    number: "01",
     title: "Complete by design",
     text: "Every collection is conceived to belong to a larger interior, creating continuity from the first entrance to the most private room.",
   },
   {
-    number: "02",
     title: "Personal in every detail",
     text: "Proportion, material, finish and function are refined around the residence and the way you want to live within it.",
   },
   {
-    number: "03",
     title: "Made for lasting presence",
     text: "Exceptional materials and exacting craftsmanship give each piece a character that becomes richer through daily life.",
   },
@@ -83,12 +80,11 @@ function CollectionsPage() {
               A kitchen should belong with the floor beneath it, the doors that
               frame it and the furniture beyond. Casa Lithic® considers every
               collection as part of one atmosphere, giving the entire residence
-              a quiet and deeply personal coherence.
+              a subtle and deeply personal harmony.
             </p>
             <div className="collections-page-principles">
               {principles.map((principle) => (
-                <article key={principle.number}>
-                  <span>{principle.number}</span>
+                <article key={principle.title}>
                   <div>
                     <h3>{principle.title}</h3>
                     <p>{principle.text}</p>
@@ -100,7 +96,7 @@ function CollectionsPage() {
         </section>
 
         <section className="collections-page-closing">
-          <img src={closingImage} alt="Private Casa Lithic wellness pavilion opening onto a quiet garden" loading="lazy" decoding="async" />
+          <img src={closingImage} alt="Private Casa Lithic wellness pavilion opening onto a tranquil garden" loading="lazy" decoding="async" />
           <div className="collections-page-closing-shade" />
           <div className="collections-page-closing-copy" data-reveal-block>
             <span className="eyebrow">Created around your life</span>

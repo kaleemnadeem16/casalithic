@@ -6,7 +6,7 @@ import vanityWallUnit from "../assets/casalithic-villa/web/vanity-wall-unit.webp
 import solidDoors from "../assets/casalithic-villa/web/solid-doors.webp";
 import woodenFlooring from "../assets/casalithic-villa/web/wooden-flooring.webp";
 import wellness from "../assets/casalithic-villa/web/wellness-enhanced.webp";
-import salon from "../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp";
+import salon from "../assets/salon-furniture/gallery/salon-furniture-gallery-09.webp";
 import officeFurniture from "../assets/office-furniture/gallery/office-furniture-gallery-09.webp";
 import cinemaFurniture from "../assets/cinema-furniture/gallery/cinema-furniture-gallery-09.webp";
 
@@ -35,7 +35,7 @@ export const collectionItems = [
     href: "/collections/wardrobes",
   },
   {
-    title: "Kitchen",
+    title: "Kitchens",
     label: "Wood · Steel · Bars",
     text: "Statement kitchens where beautiful materials make daily living feel effortless.",
     image: kitchen,
@@ -63,11 +63,11 @@ export const collectionItems = [
     href: "/collections/flooring",
   },
   {
-    title: "Saunas and Cold Plunges",
+    title: "Sauna & Cold Plunge",
     label: "Wellness",
-    text: "Private sanctuaries designed to restore the body and quiet the mind.",
+    text: "Private sanctuaries designed to restore the body and settle the mind.",
     image: wellness,
-    href: "/collections/saunas-cold-plunges",
+    href: "/collections/sauna-cold-plunge",
   },
   {
     title: "Indoor Furniture",
@@ -84,43 +84,40 @@ export const collectionItems = [
     href: "/collections/outdoor-furniture",
   },
   {
-    title: "Saloon Furniture",
+    title: "Salon Solution",
     label: "Professional",
     text: "Polished, high-comfort pieces for beauty rituals in elevated surroundings.",
     image: salon,
-    href: "/collections/saloon-furniture",
+    href: "/collections/salon-solution",
   },
   {
-    title: "Office Furniture",
+    title: "Office Solution",
     label: "Professional",
-    text: "Executive pieces that make focus feel composed, confident, and quietly powerful.",
+    text: "Executive pieces that make focus feel composed, confident, and assuredly powerful.",
     image: officeFurniture,
-    href: "/collections/office-furniture",
+    href: "/collections/office-solution",
   },
   {
-    title: "Cinema Furniture",
+    title: "Cinema Solution",
     label: "Private Entertainment",
     text: "Deeply tailored seating that turns every screening into a first-class experience.",
     image: cinemaFurniture,
-    href: "/collections/cinema-furniture",
+    href: "/collections/cinema-solution",
   },
 ];
 
 export const directionItems = [
   {
-    number: "01",
     title: "A Signature of Your Own",
     text: "Furniture, surfaces, and finishes are composed as one personal language—distinctive, harmonious, and entirely yours.",
     image: woodenFlooring,
   },
   {
-    number: "02",
     title: "Effortless by Design",
     text: "Every element works intuitively with the architecture, so beauty and ease are felt in every movement through your home.",
     image: kitchen,
   },
   {
-    number: "03",
     title: "Everyday Indulgence",
     text: "From wellness rituals to private cinema nights, exceptional comfort becomes a natural part of how you live.",
     image: wellness,
@@ -136,7 +133,7 @@ export const galleryImages = [
   { title: "Architectural Doors", image: solidDoors },
   { title: "Crafted Timber Floors", image: woodenFlooring },
   { title: "Private Wellness Suite", image: wellness },
-  { title: "Private Saloon", image: salon },
+  { title: "Private Salon", image: salon },
   { title: "Executive Office", image: officeFurniture },
   { title: "Private Cinema", image: cinemaFurniture },
 ];

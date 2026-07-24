@@ -14,23 +14,20 @@ import "./FlooringPage.css";
 
 const flooringFeatures = [
   {
-    number: "01",
     title: "Timber with character",
     text: "Tone, grain and natural variation are carefully considered, creating a floor with depth, warmth and an expression entirely suited to the residence.",
   },
   {
-    number: "02",
     title: "Patterns with purpose",
     text: "Wide planks bring calm continuity, while herringbone, chevron and panelled parquet introduce rhythm and architectural distinction.",
   },
   {
-    number: "03",
     title: "A considered finish",
     text: "Brushed textures and restrained matte tones allow the natural beauty of the timber to be felt while sitting effortlessly within the wider interior palette.",
   },
 ];
 
-const finishNotes = ["Selected European oak", "Hand-matched natural grain", "Wide plank and parquet", "Brushed matte finishes"];
+const finishNotes = ["Selected Wood Finishes", "Hand-matched natural grain", "Wide plank and parquet", "Brushed matte finishes"];
 
 const flooringGallery = [
   { image: gallery03, title: "Smoked chevron salon", material: "Smoked oak · Chevron pattern" },
@@ -65,7 +62,7 @@ function FlooringPage() {
             <h1 id="flooring-title">Beauty, grounded in nature.</h1>
             <p>
               Exceptional timber floors that bring warmth, continuity and a
-              quietly assured foundation to every part of your home.
+              gracefully assured foundation to every part of your home.
             </p>
             <a className="button button-solid" href="#flooring-inquiry">Create your foundation</a>
           </div>
@@ -87,7 +84,7 @@ function FlooringPage() {
             </div>
             <div className="wardrobe-intro-copy">
               <span className="eyebrow dark">The room begins beneath your feet</span>
-              <h2>A foundation of quiet distinction.</h2>
+              <h2>A foundation of understated distinction.</h2>
               <p>
                 A Casa Lithic® floor is selected as part of the complete interior.
                 Timber, proportion, laying pattern and finish are composed to move
@@ -95,8 +92,8 @@ function FlooringPage() {
               </p>
             </div>
             <div className="wardrobe-finish-list" aria-label="Flooring material and finish families">
-              {finishNotes.map((note, index) => (
-                <div key={note}><span>0{index + 1}</span><p>{note}</p></div>
+              {finishNotes.map((note) => (
+                <div key={note}><span className="wardrobe-finish-bullet" aria-hidden="true" /><p>{note}</p></div>
               ))}
             </div>
           </div>
@@ -129,8 +126,7 @@ function FlooringPage() {
           </div>
           <div className="wardrobe-feature-grid">
             {flooringFeatures.map((feature) => (
-              <article key={feature.number} data-reveal-block>
-                <span>{feature.number}</span>
+              <article key={feature.title} data-reveal-block>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>
               </article>

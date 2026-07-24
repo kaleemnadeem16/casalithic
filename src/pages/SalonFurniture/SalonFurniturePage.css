@@ -1,21 +1,21 @@
-.saloon-furniture-page .wardrobe-hero > img {
+.salon-furniture-page .wardrobe-hero > img {
   object-position: center;
 }
 
-.saloon-furniture-page .wardrobe-craft-image img {
+.salon-furniture-page .wardrobe-craft-image img {
   object-position: center;
 }
 
-.saloon-furniture-page .wardrobe-inquiry {
-  background-image: url("../../assets/saloon-furniture/gallery/saloon-furniture-gallery-09.webp");
+.salon-furniture-page .wardrobe-inquiry {
+  background-image: url("../../assets/salon-furniture/gallery/salon-furniture-gallery-09.webp");
 }
 
 @media (max-width: 780px) {
-  .saloon-furniture-page .wardrobe-hero > img {
+  .salon-furniture-page .wardrobe-hero > img {
     object-position: 62% center;
   }
 
-  .saloon-furniture-page .wardrobe-craft-image img {
+  .salon-furniture-page .wardrobe-craft-image img {
     object-position: 50% center;
   }
 }

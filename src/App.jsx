@@ -22,12 +22,12 @@ const routeLoaders = {
   "/collections/vanities-wall-units": () => import("./pages/VanitiesWallUnits/VanitiesWallUnitsPage"),
   "/collections/doors": () => import("./pages/Doors/DoorsPage"),
   "/collections/flooring": () => import("./pages/Flooring/FlooringPage"),
-  "/collections/saunas-cold-plunges": () => import("./pages/SaunasColdPlunges/SaunasColdPlungesPage"),
+  "/collections/sauna-cold-plunge": () => import("./pages/SaunasColdPlunges/SaunasColdPlungesPage"),
   "/collections/indoor-furniture": () => import("./pages/IndoorFurniture/IndoorFurniturePage"),
   "/collections/outdoor-furniture": () => import("./pages/OutdoorFurniture/OutdoorFurniturePage"),
-  "/collections/saloon-furniture": () => import("./pages/SaloonFurniture/SaloonFurniturePage"),
-  "/collections/office-furniture": () => import("./pages/OfficeFurniture/OfficeFurniturePage"),
-  "/collections/cinema-furniture": () => import("./pages/CinemaFurniture/CinemaFurniturePage"),
+  "/collections/salon-solution": () => import("./pages/SalonFurniture/SalonFurniturePage"),
+  "/collections/office-solution": () => import("./pages/OfficeFurniture/OfficeFurniturePage"),
+  "/collections/cinema-solution": () => import("./pages/CinemaFurniture/CinemaFurniturePage"),
 };
 const routePromises = new Map();
 
@@ -57,12 +57,12 @@ const KitchenPage = lazyRoute("/collections/kitchen");
 const VanitiesWallUnitsPage = lazyRoute("/collections/vanities-wall-units");
 const DoorsPage = lazyRoute("/collections/doors");
 const FlooringPage = lazyRoute("/collections/flooring");
-const SaunasColdPlungesPage = lazyRoute("/collections/saunas-cold-plunges");
+const SaunasColdPlungesPage = lazyRoute("/collections/sauna-cold-plunge");
 const IndoorFurniturePage = lazyRoute("/collections/indoor-furniture");
 const OutdoorFurniturePage = lazyRoute("/collections/outdoor-furniture");
-const SaloonFurniturePage = lazyRoute("/collections/saloon-furniture");
-const OfficeFurniturePage = lazyRoute("/collections/office-furniture");
-const CinemaFurniturePage = lazyRoute("/collections/cinema-furniture");
+const SalonFurniturePage = lazyRoute("/collections/salon-solution");
+const OfficeFurniturePage = lazyRoute("/collections/office-solution");
+const CinemaFurniturePage = lazyRoute("/collections/cinema-solution");
 
 function LazyRoute({ component: Component }) {
   return (
@@ -79,12 +79,12 @@ function App() {
   const isVanitiesWallUnitsPage = currentPath === "/collections/vanities-wall-units";
   const isDoorsPage = currentPath === "/collections/doors";
   const isFlooringPage = currentPath === "/collections/flooring";
-  const isSaunasColdPlungesPage = currentPath === "/collections/saunas-cold-plunges";
+  const isSaunasColdPlungesPage = currentPath === "/collections/sauna-cold-plunge";
   const isIndoorFurniturePage = currentPath === "/collections/indoor-furniture";
   const isOutdoorFurniturePage = currentPath === "/collections/outdoor-furniture";
-  const isSaloonFurniturePage = currentPath === "/collections/saloon-furniture";
-  const isOfficeFurniturePage = currentPath === "/collections/office-furniture";
-  const isCinemaFurniturePage = currentPath === "/collections/cinema-furniture";
+  const isSalonFurniturePage = currentPath === "/collections/salon-solution";
+  const isOfficeFurniturePage = currentPath === "/collections/office-solution";
+  const isCinemaFurniturePage = currentPath === "/collections/cinema-solution";
   const isAboutPage = currentPath === "/about";
   const isGalleryPage = currentPath === "/gallery";
   const isContactPage = currentPath === "/contact";
@@ -281,8 +281,8 @@ function App() {
     return <LazyRoute component={OutdoorFurniturePage} />;
   }
 
-  if (isSaloonFurniturePage) {
-    return <LazyRoute component={SaloonFurniturePage} />;
+  if (isSalonFurniturePage) {
+    return <LazyRoute component={SalonFurniturePage} />;
   }
 
   if (isOfficeFurniturePage) {

@@ -13,12 +13,12 @@ const collectionLinks = [
   ["Vanities & Wall Units", "/collections/vanities-wall-units"],
   ["Doors", "/collections/doors"],
   ["Flooring", "/collections/flooring"],
-  ["Saunas & Cold Plunges", "/collections/saunas-cold-plunges"],
+  ["Sauna & Cold Plunge", "/collections/sauna-cold-plunge"],
   ["Indoor Furniture", "/collections/indoor-furniture"],
   ["Outdoor Furniture", "/collections/outdoor-furniture"],
-  ["Saloon Furniture", "/collections/saloon-furniture"],
-  ["Office Furniture", "/collections/office-furniture"],
-  ["Cinema Furniture", "/collections/cinema-furniture"],
+  ["Salon Solution", "/collections/salon-solution"],
+  ["Office Solution", "/collections/office-solution"],
+  ["Cinema Solution", "/collections/cinema-solution"],
 ];
 
 function Header() {
